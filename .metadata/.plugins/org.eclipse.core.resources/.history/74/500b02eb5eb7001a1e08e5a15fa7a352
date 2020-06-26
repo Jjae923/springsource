@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 필요한 객체는 bean으로 생성한 후 객체가 필요한 주입상태는
+		 @Autowired 사용
+	 -->
+	<bean id="tv" class="com.spring.autowired.LgTV"/>
+	<bean id="speaker" class="com.spring.autowired.SonySpeaker"/>
+
+</beans>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="stu" class="com.spring.stu.Student">
+		<constructor-arg value="hong"/>
+		<constructor-arg value="16"/>
+		<constructor-arg value="1"/>
+	</bean>
+	<bean id="info" class="com.spring.stu.StudentInfo">
+		<constructor-arg ref="stu" />
+	</bean>
+<!-- StudentInfo에 default 생성자도 있고 set메소드도 있기때문에 이것도 가능
+	<bean id="info" class="com.spring.stu.StudentInfo">
+		<property ref="stu" />
+	</bean> -->
+	
+</beans>

@@ -1,0 +1,8 @@
+package com.spring.stu;
+
+public class StudentMain {
+	public static void main(String[] args) {
+		StudentInfo info = new StudentInfo("hong","15","3");
+		info.getStudentInfo();
+	}
+}

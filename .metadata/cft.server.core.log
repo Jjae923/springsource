@@ -1,0 +1,2 @@
+금 6월 26 2020 02:42:32 오후 - CloudFoundryServer.modifyModules(...): add: { annotation [org.eclipse.jst.jee.server:annotation/jst.web]} remove: {}
+금 6월 26 2020 02:42:38 오후 - CloudFoundryServerBehaviour.publishModule(...): ADDED { annotation [org.eclipse.jst.jee.server:annotation/jst.web]}
