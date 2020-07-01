@@ -5,4 +5,7 @@
 <typeInfo handle="=simpleboard_cp_jdbc/C:\/Users\/students\/.m2\/repository\/org\/springframework\/spring-jdbc\/5.2.4.RELEASE\/spring-jdbc-5.2.4.RELEASE.jar=/maven.pomderived=/true=/=/org.eclipse.jst.component.dependency=/\/WEB-INF\/lib=/=/maven.pomderived=/true=/=/org.eclipse.jst.component.archivename=/spring-jdbc-5.2.4.RELEASE.jar=/=/maven.groupId=/org.springframework=/=/maven.artifactId=/spring-jdbc=/=/maven.version=/5.2.4.RELEASE=/=/maven.scope=/compile=/&lt;org.springframework.jdbc.core(RowMapper.class[RowMapper" modifiers="1537" timestamp="1593476648877"/>
 <typeInfo handle="=mybatis/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.spring.service{PersonService.java[PersonService" modifiers="513" timestamp="1593497677893"/>
 <typeInfo handle="=simpleboard_mybatis/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.spring.mapper{BoardMapper.java[BoardMapper" modifiers="513" timestamp="1593501812385"/>
+<typeInfo handle="=transaction/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.spring.mapper{SampleMapper2.java[SampleMapper2" modifiers="513" timestamp="1593566612749"/>
+<typeInfo handle="=transaction/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.spring.service{SampleService.java[SampleService" modifiers="513" timestamp="1593564292701"/>
+<typeInfo handle="=transaction/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.spring.mapper{SampleMapper1.java[SampleMapper1" modifiers="513" timestamp="1593566612759"/>
 </typeInfoHistroy>

@@ -22,7 +22,7 @@
 		<constructor-arg ref="hikariConfig" />
 	</bean>
 	
-		<!-- mybatis 설정 -->
+	<!-- mybatis 설정 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="ds"/>
 	</bean>
