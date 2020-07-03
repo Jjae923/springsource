@@ -15,11 +15,21 @@ pageEncoding="UTF-8"%>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.js"></script>
     <!-- validation 사용자 작성 코드 삽입-->
-    <script src=""></script>
+    <script src="/resources/js/join.js"></script>
+<script>
+$(function(){
+	let gender = '${vo.gender}';
+	if(gender === '남'){
+		$("input:radio[name='gender'][value='남']").prop("checked",true);
+	}else if(gender === '여'){
+		$("input:radio[name='gender'][value='여']").prop("checked",true);
+	}
+})
+</script>
   </head>
   <body style="background-color:#F5F5F5;">
     <div class="container" style="margin-top:40px">
-      <form id="regist" method="post" action="">
+      <form id="regist" method="post" action="step3">
         <div class="form-group row justify-content-center">
           <label for="userid" class="col-sm-2 col-form-label">아이디</label>
           <div class="col-sm-6">
@@ -29,6 +39,7 @@ pageEncoding="UTF-8"%>
               id="userid"
               class="form-control"
               placeholder="아이디를 입력하세요"
+              value="${vo.userid}"
             />
             <small id="userid" class="text-info"></small>
           </div>
@@ -62,14 +73,15 @@ pageEncoding="UTF-8"%>
           </div>
         </div>
         <div class="form-group row justify-content-center">
-          <label for="username" class="col-sm-2 col-form-label">이름 </label>
+          <label for="name" class="col-sm-2 col-form-label">이름 </label>
           <div class="col-sm-6">
             <input
               type="text"
-              name="username"
-              id="username"
+              name="name"
+              id="name"
               class="form-control"
               placeholder="이름을 입력하세요"
+              value="${vo.name}"
             />
             <small id="username" class="text-info"></small>
           </div>
@@ -106,6 +118,7 @@ pageEncoding="UTF-8"%>
               id="email"
               class="form-control"
               placeholder="example@gmail.com"
+              value="${vo.email}"
             />
             <small id="email" class="text-info"></small>
           </div>

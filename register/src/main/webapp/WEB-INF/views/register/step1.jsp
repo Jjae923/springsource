@@ -13,6 +13,13 @@
 		font-size:14px;
 	}
 </style>
+<script>
+	let msg = '${msg}'; // javaScript 안에 바로 EL 사용 가능
+	console.log(msg);
+	if(msg === 'false'){
+		alert('약관에 동의를 해주세요');
+	}
+</script>
 </head>
 <body>
 <div class="container">
@@ -157,4 +164,3 @@
 </div>
 </body>
 </html>
-
