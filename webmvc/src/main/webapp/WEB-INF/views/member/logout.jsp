@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>logout 페이지</h1>
+	<h1>Logout</h1>
+	<%-- 사용자의 아이디 출력 --%>
+	<h3>${loginVO.userid}</h3>
 </body>
 </html>

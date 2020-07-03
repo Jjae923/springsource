@@ -7127,3 +7127,918 @@ java.net.UnknownHostException: jope.ow2.org
 	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:988)
 	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2020-07-02 09:00:37.922 -----------------------------------------------
+eclipse.buildId=4.14.0.I20191210-0610
+java.version=1.8.0_241
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.glassfish.jersey.ext.entityfiltering 4 0 2020-07-02 09:00:44.115
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.glassfish.jersey.ext.entityfiltering [1112]
+  Unresolved requirement: Import-Package: javax.xml.bind; version="[2.3.0,3.0.0)"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:462)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1844)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1837)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1778)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1742)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1664)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.springframework.ide.eclipse.boot.dash.cf 4 0 2020-07-02 09:00:44.130
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.springframework.ide.eclipse.boot.dash.cf [1149]
+  Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.boot.wizard
+    -> Bundle-SymbolicName: org.springframework.ide.eclipse.boot.wizard; bundle-version="3.9.13.202006180736-RELEASE"; singleton:="true"
+       org.springframework.ide.eclipse.boot.wizard [1158]
+         Unresolved requirement: Import-Package: org.glassfish.jersey.jackson; version="2.30.0"
+           -> Export-Package: org.glassfish.jersey.jackson; bundle-symbolic-name="org.glassfish.jersey.media.jersey-media-json-jackson"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="javax.ws.rs.core"
+              org.glassfish.jersey.media.jersey-media-json-jackson [1114]
+                Unresolved requirement: Import-Package: org.glassfish.jersey.message.filtering.spi; version="[2.30.0,3.0.0)"
+                  -> Export-Package: org.glassfish.jersey.message.filtering.spi; bundle-symbolic-name="org.glassfish.jersey.ext.entityfiltering"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="org.glassfish.jersey.spi"
+                     org.glassfish.jersey.ext.entityfiltering [1112]
+                       Unresolved requirement: Import-Package: javax.xml.bind; version="[2.3.0,3.0.0)"
+                Unresolved requirement: Import-Package: org.glassfish.jersey.message.filtering; version="[2.30.0,3.0.0)"
+                  -> Export-Package: org.glassfish.jersey.message.filtering; bundle-symbolic-name="org.glassfish.jersey.ext.entityfiltering"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="javax.annotation,javax.annotation.security,javax.inject,javax.ws.rs.core,org.glassfish.jersey.message.filtering.spi"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:462)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1844)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1837)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1778)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1742)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1664)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.springframework.ide.eclipse.boot.wizard 4 0 2020-07-02 09:00:44.130
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.springframework.ide.eclipse.boot.wizard [1158]
+  Unresolved requirement: Import-Package: org.glassfish.jersey.jackson; version="2.30.0"
+    -> Export-Package: org.glassfish.jersey.jackson; bundle-symbolic-name="org.glassfish.jersey.media.jersey-media-json-jackson"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="javax.ws.rs.core"
+       org.glassfish.jersey.media.jersey-media-json-jackson [1114]
+         Unresolved requirement: Import-Package: org.glassfish.jersey.message.filtering.spi; version="[2.30.0,3.0.0)"
+           -> Export-Package: org.glassfish.jersey.message.filtering.spi; bundle-symbolic-name="org.glassfish.jersey.ext.entityfiltering"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="org.glassfish.jersey.spi"
+              org.glassfish.jersey.ext.entityfiltering [1112]
+                Unresolved requirement: Import-Package: javax.xml.bind; version="[2.3.0,3.0.0)"
+         Unresolved requirement: Import-Package: org.glassfish.jersey.message.filtering; version="[2.30.0,3.0.0)"
+           -> Export-Package: org.glassfish.jersey.message.filtering; bundle-symbolic-name="org.glassfish.jersey.ext.entityfiltering"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="javax.annotation,javax.annotation.security,javax.inject,javax.ws.rs.core,org.glassfish.jersey.message.filtering.spi"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:462)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1844)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1837)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1778)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1742)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1664)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.springframework.ide.eclipse.buildship20 4 0 2020-07-02 09:00:44.130
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.springframework.ide.eclipse.buildship20 [1159]
+  Unresolved requirement: Require-Bundle: org.eclipse.buildship.core; bundle-version="[2.0.0,3.0.0)"; resolution:="optional"
+  Unresolved requirement: Require-Bundle: com.gradleware.tooling.model; resolution:="optional"
+  Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.boot.wizard
+    -> Bundle-SymbolicName: org.springframework.ide.eclipse.boot.wizard; bundle-version="3.9.13.202006180736-RELEASE"; singleton:="true"
+       org.springframework.ide.eclipse.boot.wizard [1158]
+         Unresolved requirement: Import-Package: org.glassfish.jersey.jackson; version="2.30.0"
+           -> Export-Package: org.glassfish.jersey.jackson; bundle-symbolic-name="org.glassfish.jersey.media.jersey-media-json-jackson"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="javax.ws.rs.core"
+              org.glassfish.jersey.media.jersey-media-json-jackson [1114]
+                Unresolved requirement: Import-Package: org.glassfish.jersey.message.filtering.spi; version="[2.30.0,3.0.0)"
+                  -> Export-Package: org.glassfish.jersey.message.filtering.spi; bundle-symbolic-name="org.glassfish.jersey.ext.entityfiltering"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="org.glassfish.jersey.spi"
+                     org.glassfish.jersey.ext.entityfiltering [1112]
+                       Unresolved requirement: Import-Package: javax.xml.bind; version="[2.3.0,3.0.0)"
+                Unresolved requirement: Import-Package: org.glassfish.jersey.message.filtering; version="[2.30.0,3.0.0)"
+                  -> Export-Package: org.glassfish.jersey.message.filtering; bundle-symbolic-name="org.glassfish.jersey.ext.entityfiltering"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="javax.annotation,javax.annotation.security,javax.inject,javax.ws.rs.core,org.glassfish.jersey.message.filtering.spi"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:462)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1844)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1837)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1778)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1742)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1664)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.springframework.ide.eclipse.buildship30 4 0 2020-07-02 09:00:44.130
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.springframework.ide.eclipse.buildship30 [1160]
+  Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.boot.wizard
+    -> Bundle-SymbolicName: org.springframework.ide.eclipse.boot.wizard; bundle-version="3.9.13.202006180736-RELEASE"; singleton:="true"
+       org.springframework.ide.eclipse.boot.wizard [1158]
+         Unresolved requirement: Import-Package: org.glassfish.jersey.jackson; version="2.30.0"
+           -> Export-Package: org.glassfish.jersey.jackson; bundle-symbolic-name="org.glassfish.jersey.media.jersey-media-json-jackson"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="javax.ws.rs.core"
+              org.glassfish.jersey.media.jersey-media-json-jackson [1114]
+                Unresolved requirement: Import-Package: org.glassfish.jersey.message.filtering.spi; version="[2.30.0,3.0.0)"
+                  -> Export-Package: org.glassfish.jersey.message.filtering.spi; bundle-symbolic-name="org.glassfish.jersey.ext.entityfiltering"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="org.glassfish.jersey.spi"
+                     org.glassfish.jersey.ext.entityfiltering [1112]
+                       Unresolved requirement: Import-Package: javax.xml.bind; version="[2.3.0,3.0.0)"
+                Unresolved requirement: Import-Package: org.glassfish.jersey.message.filtering; version="[2.30.0,3.0.0)"
+                  -> Export-Package: org.glassfish.jersey.message.filtering; bundle-symbolic-name="org.glassfish.jersey.ext.entityfiltering"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="javax.annotation,javax.annotation.security,javax.inject,javax.ws.rs.core,org.glassfish.jersey.message.filtering.spi"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:462)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1844)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1837)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1778)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1742)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1664)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.jface 2 0 2020-07-02 09:00:51.895
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-07-02 09:00:51.895
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@7a2b3cfd,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@33602729,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2020-07-02 09:01:19.359
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\students'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2020-07-02 09:44:41.853 -----------------------------------------------
+eclipse.buildId=4.14.0.I20191210-0610
+java.version=1.8.0_241
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.glassfish.jersey.ext.entityfiltering 4 0 2020-07-02 09:44:53.294
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.glassfish.jersey.ext.entityfiltering [1112]
+  Unresolved requirement: Import-Package: javax.xml.bind; version="[2.3.0,3.0.0)"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:462)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1844)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1837)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1778)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1742)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1664)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.springframework.ide.eclipse.boot.dash.cf 4 0 2020-07-02 09:44:53.310
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.springframework.ide.eclipse.boot.dash.cf [1149]
+  Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.boot.wizard
+    -> Bundle-SymbolicName: org.springframework.ide.eclipse.boot.wizard; bundle-version="3.9.13.202006180736-RELEASE"; singleton:="true"
+       org.springframework.ide.eclipse.boot.wizard [1158]
+         Unresolved requirement: Import-Package: org.glassfish.jersey.jackson; version="2.30.0"
+           -> Export-Package: org.glassfish.jersey.jackson; bundle-symbolic-name="org.glassfish.jersey.media.jersey-media-json-jackson"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="javax.ws.rs.core"
+              org.glassfish.jersey.media.jersey-media-json-jackson [1114]
+                Unresolved requirement: Import-Package: org.glassfish.jersey.message.filtering.spi; version="[2.30.0,3.0.0)"
+                  -> Export-Package: org.glassfish.jersey.message.filtering.spi; bundle-symbolic-name="org.glassfish.jersey.ext.entityfiltering"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="org.glassfish.jersey.spi"
+                     org.glassfish.jersey.ext.entityfiltering [1112]
+                       Unresolved requirement: Import-Package: javax.xml.bind; version="[2.3.0,3.0.0)"
+                Unresolved requirement: Import-Package: org.glassfish.jersey.message.filtering; version="[2.30.0,3.0.0)"
+                  -> Export-Package: org.glassfish.jersey.message.filtering; bundle-symbolic-name="org.glassfish.jersey.ext.entityfiltering"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="javax.annotation,javax.annotation.security,javax.inject,javax.ws.rs.core,org.glassfish.jersey.message.filtering.spi"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:462)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1844)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1837)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1778)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1742)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1664)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.springframework.ide.eclipse.boot.wizard 4 0 2020-07-02 09:44:53.310
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.springframework.ide.eclipse.boot.wizard [1158]
+  Unresolved requirement: Import-Package: org.glassfish.jersey.jackson; version="2.30.0"
+    -> Export-Package: org.glassfish.jersey.jackson; bundle-symbolic-name="org.glassfish.jersey.media.jersey-media-json-jackson"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="javax.ws.rs.core"
+       org.glassfish.jersey.media.jersey-media-json-jackson [1114]
+         Unresolved requirement: Import-Package: org.glassfish.jersey.message.filtering.spi; version="[2.30.0,3.0.0)"
+           -> Export-Package: org.glassfish.jersey.message.filtering.spi; bundle-symbolic-name="org.glassfish.jersey.ext.entityfiltering"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="org.glassfish.jersey.spi"
+              org.glassfish.jersey.ext.entityfiltering [1112]
+                Unresolved requirement: Import-Package: javax.xml.bind; version="[2.3.0,3.0.0)"
+         Unresolved requirement: Import-Package: org.glassfish.jersey.message.filtering; version="[2.30.0,3.0.0)"
+           -> Export-Package: org.glassfish.jersey.message.filtering; bundle-symbolic-name="org.glassfish.jersey.ext.entityfiltering"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="javax.annotation,javax.annotation.security,javax.inject,javax.ws.rs.core,org.glassfish.jersey.message.filtering.spi"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:462)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1844)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1837)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1778)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1742)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1664)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.springframework.ide.eclipse.buildship20 4 0 2020-07-02 09:44:53.310
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.springframework.ide.eclipse.buildship20 [1159]
+  Unresolved requirement: Require-Bundle: org.eclipse.buildship.core; bundle-version="[2.0.0,3.0.0)"; resolution:="optional"
+  Unresolved requirement: Require-Bundle: com.gradleware.tooling.model; resolution:="optional"
+  Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.boot.wizard
+    -> Bundle-SymbolicName: org.springframework.ide.eclipse.boot.wizard; bundle-version="3.9.13.202006180736-RELEASE"; singleton:="true"
+       org.springframework.ide.eclipse.boot.wizard [1158]
+         Unresolved requirement: Import-Package: org.glassfish.jersey.jackson; version="2.30.0"
+           -> Export-Package: org.glassfish.jersey.jackson; bundle-symbolic-name="org.glassfish.jersey.media.jersey-media-json-jackson"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="javax.ws.rs.core"
+              org.glassfish.jersey.media.jersey-media-json-jackson [1114]
+                Unresolved requirement: Import-Package: org.glassfish.jersey.message.filtering.spi; version="[2.30.0,3.0.0)"
+                  -> Export-Package: org.glassfish.jersey.message.filtering.spi; bundle-symbolic-name="org.glassfish.jersey.ext.entityfiltering"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="org.glassfish.jersey.spi"
+                     org.glassfish.jersey.ext.entityfiltering [1112]
+                       Unresolved requirement: Import-Package: javax.xml.bind; version="[2.3.0,3.0.0)"
+                Unresolved requirement: Import-Package: org.glassfish.jersey.message.filtering; version="[2.30.0,3.0.0)"
+                  -> Export-Package: org.glassfish.jersey.message.filtering; bundle-symbolic-name="org.glassfish.jersey.ext.entityfiltering"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="javax.annotation,javax.annotation.security,javax.inject,javax.ws.rs.core,org.glassfish.jersey.message.filtering.spi"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:462)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1844)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1837)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1778)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1742)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1664)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.springframework.ide.eclipse.buildship30 4 0 2020-07-02 09:44:53.310
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.springframework.ide.eclipse.buildship30 [1160]
+  Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.boot.wizard
+    -> Bundle-SymbolicName: org.springframework.ide.eclipse.boot.wizard; bundle-version="3.9.13.202006180736-RELEASE"; singleton:="true"
+       org.springframework.ide.eclipse.boot.wizard [1158]
+         Unresolved requirement: Import-Package: org.glassfish.jersey.jackson; version="2.30.0"
+           -> Export-Package: org.glassfish.jersey.jackson; bundle-symbolic-name="org.glassfish.jersey.media.jersey-media-json-jackson"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="javax.ws.rs.core"
+              org.glassfish.jersey.media.jersey-media-json-jackson [1114]
+                Unresolved requirement: Import-Package: org.glassfish.jersey.message.filtering.spi; version="[2.30.0,3.0.0)"
+                  -> Export-Package: org.glassfish.jersey.message.filtering.spi; bundle-symbolic-name="org.glassfish.jersey.ext.entityfiltering"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="org.glassfish.jersey.spi"
+                     org.glassfish.jersey.ext.entityfiltering [1112]
+                       Unresolved requirement: Import-Package: javax.xml.bind; version="[2.3.0,3.0.0)"
+                Unresolved requirement: Import-Package: org.glassfish.jersey.message.filtering; version="[2.30.0,3.0.0)"
+                  -> Export-Package: org.glassfish.jersey.message.filtering; bundle-symbolic-name="org.glassfish.jersey.ext.entityfiltering"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="javax.annotation,javax.annotation.security,javax.inject,javax.ws.rs.core,org.glassfish.jersey.message.filtering.spi"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:462)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1844)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1837)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1778)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1742)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1664)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.core.resources 2 10035 2020-07-02 09:44:56.758
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.jface 2 0 2020-07-02 09:45:05.564
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-07-02 09:45:05.564
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4e7e7763,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4ecc4b43,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2020-07-02 09:46:07.314
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\students'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2020-07-02 11:46:05.499
+!MESSAGE Connection to https://dist.springsource.com/release/STS/doc/updates.xml failed on dist.springsource.com. Retry attempt 0 started
+!STACK 0
+java.net.UnknownHostException: dist.springsource.com
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(Unknown Source)
+	at java.net.InetAddress.getAddressesFromNameService(Unknown Source)
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:112)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:373)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:394)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:237)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1000)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:992)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:988)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2020-07-02 11:46:05.728
+!MESSAGE Connection to https://spring.io/blog.atom failed on spring.io. Retry attempt 0 started
+!STACK 0
+java.net.UnknownHostException: spring.io
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(Unknown Source)
+	at java.net.InetAddress.getAddressesFromNameService(Unknown Source)
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:112)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:373)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:394)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:237)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1000)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:992)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:988)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2020-07-02 12:46:16.803
+!MESSAGE Connection to https://dist.springsource.com/release/STS/doc/updates.xml failed on dist.springsource.com. Retry attempt 0 started
+!STACK 0
+java.net.UnknownHostException: dist.springsource.com
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(Unknown Source)
+	at java.net.InetAddress.getAddressesFromNameService(Unknown Source)
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:112)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:373)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:394)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:237)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1000)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:992)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:988)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2020-07-02 12:46:17.067
+!MESSAGE Connection to https://spring.io/blog.atom failed on spring.io. Retry attempt 0 started
+!STACK 0
+java.net.UnknownHostException: spring.io
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(Unknown Source)
+	at java.net.InetAddress.getAddressesFromNameService(Unknown Source)
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:112)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:373)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:394)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:237)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1000)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:992)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:988)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.springframework.ide.eclipse.metadata 2 1 2020-07-02 16:12:25.805
+!MESSAGE org.xml.sax.SAXParseException; systemId: file:/D:/Source/eclipse/springsource/register/src/main/webapp/WEB-INF/web.xml; lineNumber: 46; columnNumber: 3; 요소 유형 "filter-mapping"은(는) 짝이 맞는 종료 태그 "</filter-mapping>"(으)로 종료되어야 합니다.
+!STACK 0
+java.lang.RuntimeException: org.xml.sax.SAXParseException; systemId: file:/D:/Source/eclipse/springsource/register/src/main/webapp/WEB-INF/web.xml; lineNumber: 46; columnNumber: 3; 요소 유형 "filter-mapping"은(는) 짝이 맞는 종료 태그 "</filter-mapping>"(으)로 종료되어야 합니다.
+	at org.springframework.ide.eclipse.core.SpringCoreUtils.parseDocument(SpringCoreUtils.java:659)
+	at org.springframework.ide.eclipse.core.SpringCoreUtils.parseDocument(SpringCoreUtils.java:639)
+	at org.springframework.ide.eclipse.metadata.locate.DynamicWebProjectBeansConfigLocator.canLocateInProject(DynamicWebProjectBeansConfigLocator.java:209)
+	at org.springframework.ide.eclipse.beans.core.model.locate.AbstractPathMatchingBeansConfigLocator.locateBeansConfigs(AbstractPathMatchingBeansConfigLocator.java:69)
+	at org.springframework.ide.eclipse.beans.core.model.locate.AbstractBeansConfigLocator.isBeansConfig(AbstractBeansConfigLocator.java:44)
+	at org.springframework.ide.eclipse.beans.core.internal.model.resources.BeansResourceChangeListener$BeansResourceVisitor.isAutoDetectedConfig(BeansResourceChangeListener.java:175)
+	at org.springframework.ide.eclipse.beans.core.internal.model.resources.BeansResourceChangeListener$BeansResourceVisitor.resourceChanged(BeansResourceChangeListener.java:122)
+	at org.springframework.ide.eclipse.core.internal.model.resources.SpringResourceChangeListener$SpringResourceVisitor.visit(SpringResourceChangeListener.java:151)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:67)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.springframework.ide.eclipse.core.internal.model.resources.SpringResourceChangeListener.resourceChanged(SpringResourceChangeListener.java:83)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:305)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:295)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:158)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:366)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:150)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:244)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.xml.sax.SAXParseException; systemId: file:/D:/Source/eclipse/springsource/register/src/main/webapp/WEB-INF/web.xml; lineNumber: 46; columnNumber: 3; 요소 유형 "filter-mapping"은(는) 짝이 맞는 종료 태그 "</filter-mapping>"(으)로 종료되어야 합니다.
+	at com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(Unknown Source)
+	at javax.xml.parsers.DocumentBuilder.parse(Unknown Source)
+	at org.springframework.ide.eclipse.core.SpringCoreUtils.parseDocument(SpringCoreUtils.java:656)
+	... 23 more
+
+!ENTRY org.springframework.ide.eclipse.metadata 2 1 2020-07-02 16:12:25.808
+!MESSAGE org.xml.sax.SAXParseException; systemId: file:/D:/Source/eclipse/springsource/register/src/main/webapp/WEB-INF/web.xml; lineNumber: 46; columnNumber: 3; 요소 유형 "filter-mapping"은(는) 짝이 맞는 종료 태그 "</filter-mapping>"(으)로 종료되어야 합니다.
+!STACK 0
+java.lang.RuntimeException: org.xml.sax.SAXParseException; systemId: file:/D:/Source/eclipse/springsource/register/src/main/webapp/WEB-INF/web.xml; lineNumber: 46; columnNumber: 3; 요소 유형 "filter-mapping"은(는) 짝이 맞는 종료 태그 "</filter-mapping>"(으)로 종료되어야 합니다.
+	at org.springframework.ide.eclipse.core.SpringCoreUtils.parseDocument(SpringCoreUtils.java:659)
+	at org.springframework.ide.eclipse.core.SpringCoreUtils.parseDocument(SpringCoreUtils.java:639)
+	at org.springframework.ide.eclipse.metadata.locate.DynamicWebProjectBeansConfigLocator.canLocateInProject(DynamicWebProjectBeansConfigLocator.java:245)
+	at org.springframework.ide.eclipse.beans.core.model.locate.AbstractPathMatchingBeansConfigLocator.locateBeansConfigs(AbstractPathMatchingBeansConfigLocator.java:69)
+	at org.springframework.ide.eclipse.beans.core.model.locate.AbstractBeansConfigLocator.isBeansConfig(AbstractBeansConfigLocator.java:44)
+	at org.springframework.ide.eclipse.beans.core.internal.model.resources.BeansResourceChangeListener$BeansResourceVisitor.isAutoDetectedConfig(BeansResourceChangeListener.java:175)
+	at org.springframework.ide.eclipse.beans.core.internal.model.resources.BeansResourceChangeListener$BeansResourceVisitor.resourceChanged(BeansResourceChangeListener.java:122)
+	at org.springframework.ide.eclipse.core.internal.model.resources.SpringResourceChangeListener$SpringResourceVisitor.visit(SpringResourceChangeListener.java:151)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:67)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.springframework.ide.eclipse.core.internal.model.resources.SpringResourceChangeListener.resourceChanged(SpringResourceChangeListener.java:83)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:305)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:295)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:158)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:366)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:150)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:244)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.xml.sax.SAXParseException; systemId: file:/D:/Source/eclipse/springsource/register/src/main/webapp/WEB-INF/web.xml; lineNumber: 46; columnNumber: 3; 요소 유형 "filter-mapping"은(는) 짝이 맞는 종료 태그 "</filter-mapping>"(으)로 종료되어야 합니다.
+	at com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(Unknown Source)
+	at javax.xml.parsers.DocumentBuilder.parse(Unknown Source)
+	at org.springframework.ide.eclipse.core.SpringCoreUtils.parseDocument(SpringCoreUtils.java:656)
+	... 23 more
+
+!ENTRY org.springframework.ide.eclipse.metadata 2 1 2020-07-02 16:12:25.840
+!MESSAGE org.xml.sax.SAXParseException; systemId: file:/D:/Source/eclipse/springsource/register/src/main/webapp/WEB-INF/web.xml; lineNumber: 46; columnNumber: 3; 요소 유형 "filter-mapping"은(는) 짝이 맞는 종료 태그 "</filter-mapping>"(으)로 종료되어야 합니다.
+!STACK 0
+java.lang.RuntimeException: org.xml.sax.SAXParseException; systemId: file:/D:/Source/eclipse/springsource/register/src/main/webapp/WEB-INF/web.xml; lineNumber: 46; columnNumber: 3; 요소 유형 "filter-mapping"은(는) 짝이 맞는 종료 태그 "</filter-mapping>"(으)로 종료되어야 합니다.
+	at org.springframework.ide.eclipse.core.SpringCoreUtils.parseDocument(SpringCoreUtils.java:659)
+	at org.springframework.ide.eclipse.core.SpringCoreUtils.parseDocument(SpringCoreUtils.java:639)
+	at org.springframework.ide.eclipse.metadata.locate.DynamicWebProjectBeansConfigLocator.canLocateInProject(DynamicWebProjectBeansConfigLocator.java:209)
+	at org.springframework.ide.eclipse.beans.core.model.locate.AbstractPathMatchingBeansConfigLocator.locateBeansConfigs(AbstractPathMatchingBeansConfigLocator.java:69)
+	at org.springframework.ide.eclipse.beans.core.model.locate.AbstractBeansConfigLocator.isBeansConfig(AbstractBeansConfigLocator.java:44)
+	at org.springframework.ide.eclipse.beans.core.internal.model.resources.BeansResourceChangeListener$BeansResourceVisitor.isAutoDetectedConfig(BeansResourceChangeListener.java:175)
+	at org.springframework.ide.eclipse.beans.core.internal.model.resources.BeansResourceChangeListener$BeansResourceVisitor.resourceChanged(BeansResourceChangeListener.java:122)
+	at org.springframework.ide.eclipse.core.internal.model.resources.SpringResourceChangeListener$SpringResourceVisitor.visit(SpringResourceChangeListener.java:151)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:67)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.springframework.ide.eclipse.core.internal.model.resources.SpringResourceChangeListener.resourceChanged(SpringResourceChangeListener.java:83)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:305)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:295)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:158)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:366)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:157)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:244)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.xml.sax.SAXParseException; systemId: file:/D:/Source/eclipse/springsource/register/src/main/webapp/WEB-INF/web.xml; lineNumber: 46; columnNumber: 3; 요소 유형 "filter-mapping"은(는) 짝이 맞는 종료 태그 "</filter-mapping>"(으)로 종료되어야 합니다.
+	at com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(Unknown Source)
+	at javax.xml.parsers.DocumentBuilder.parse(Unknown Source)
+	at org.springframework.ide.eclipse.core.SpringCoreUtils.parseDocument(SpringCoreUtils.java:656)
+	... 23 more
+
+!ENTRY org.springframework.ide.eclipse.metadata 2 1 2020-07-02 16:12:25.841
+!MESSAGE org.xml.sax.SAXParseException; systemId: file:/D:/Source/eclipse/springsource/register/src/main/webapp/WEB-INF/web.xml; lineNumber: 46; columnNumber: 3; 요소 유형 "filter-mapping"은(는) 짝이 맞는 종료 태그 "</filter-mapping>"(으)로 종료되어야 합니다.
+!STACK 0
+java.lang.RuntimeException: org.xml.sax.SAXParseException; systemId: file:/D:/Source/eclipse/springsource/register/src/main/webapp/WEB-INF/web.xml; lineNumber: 46; columnNumber: 3; 요소 유형 "filter-mapping"은(는) 짝이 맞는 종료 태그 "</filter-mapping>"(으)로 종료되어야 합니다.
+	at org.springframework.ide.eclipse.core.SpringCoreUtils.parseDocument(SpringCoreUtils.java:659)
+	at org.springframework.ide.eclipse.core.SpringCoreUtils.parseDocument(SpringCoreUtils.java:639)
+	at org.springframework.ide.eclipse.metadata.locate.DynamicWebProjectBeansConfigLocator.canLocateInProject(DynamicWebProjectBeansConfigLocator.java:245)
+	at org.springframework.ide.eclipse.beans.core.model.locate.AbstractPathMatchingBeansConfigLocator.locateBeansConfigs(AbstractPathMatchingBeansConfigLocator.java:69)
+	at org.springframework.ide.eclipse.beans.core.model.locate.AbstractBeansConfigLocator.isBeansConfig(AbstractBeansConfigLocator.java:44)
+	at org.springframework.ide.eclipse.beans.core.internal.model.resources.BeansResourceChangeListener$BeansResourceVisitor.isAutoDetectedConfig(BeansResourceChangeListener.java:175)
+	at org.springframework.ide.eclipse.beans.core.internal.model.resources.BeansResourceChangeListener$BeansResourceVisitor.resourceChanged(BeansResourceChangeListener.java:122)
+	at org.springframework.ide.eclipse.core.internal.model.resources.SpringResourceChangeListener$SpringResourceVisitor.visit(SpringResourceChangeListener.java:151)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:67)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.springframework.ide.eclipse.core.internal.model.resources.SpringResourceChangeListener.resourceChanged(SpringResourceChangeListener.java:83)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:305)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:295)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:158)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:366)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:157)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:244)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.xml.sax.SAXParseException; systemId: file:/D:/Source/eclipse/springsource/register/src/main/webapp/WEB-INF/web.xml; lineNumber: 46; columnNumber: 3; 요소 유형 "filter-mapping"은(는) 짝이 맞는 종료 태그 "</filter-mapping>"(으)로 종료되어야 합니다.
+	at com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(Unknown Source)
+	at javax.xml.parsers.DocumentBuilder.parse(Unknown Source)
+	at org.springframework.ide.eclipse.core.SpringCoreUtils.parseDocument(SpringCoreUtils.java:656)
+	... 23 more
+
+!ENTRY org.springframework.ide.eclipse.metadata 2 1 2020-07-02 16:12:26.964
+!MESSAGE org.xml.sax.SAXParseException; systemId: file:/D:/Source/eclipse/springsource/register/src/main/webapp/WEB-INF/web.xml; lineNumber: 46; columnNumber: 3; 요소 유형 "filter-mapping"은(는) 짝이 맞는 종료 태그 "</filter-mapping>"(으)로 종료되어야 합니다.
+!STACK 0
+java.lang.RuntimeException: org.xml.sax.SAXParseException; systemId: file:/D:/Source/eclipse/springsource/register/src/main/webapp/WEB-INF/web.xml; lineNumber: 46; columnNumber: 3; 요소 유형 "filter-mapping"은(는) 짝이 맞는 종료 태그 "</filter-mapping>"(으)로 종료되어야 합니다.
+	at org.springframework.ide.eclipse.core.SpringCoreUtils.parseDocument(SpringCoreUtils.java:659)
+	at org.springframework.ide.eclipse.core.SpringCoreUtils.parseDocument(SpringCoreUtils.java:639)
+	at org.springframework.ide.eclipse.metadata.locate.DynamicWebProjectBeansConfigLocator.canLocateInProject(DynamicWebProjectBeansConfigLocator.java:209)
+	at org.springframework.ide.eclipse.beans.core.model.locate.AbstractPathMatchingBeansConfigLocator.locateBeansConfigs(AbstractPathMatchingBeansConfigLocator.java:69)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansProject$2.run(BeansProject.java:1174)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansProject.populateAutoDetectedConfigsAndConfigSetsInternally(BeansProject.java:1165)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansProject$1.run(BeansProject.java:1115)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.xml.sax.SAXParseException; systemId: file:/D:/Source/eclipse/springsource/register/src/main/webapp/WEB-INF/web.xml; lineNumber: 46; columnNumber: 3; 요소 유형 "filter-mapping"은(는) 짝이 맞는 종료 태그 "</filter-mapping>"(으)로 종료되어야 합니다.
+	at com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(Unknown Source)
+	at javax.xml.parsers.DocumentBuilder.parse(Unknown Source)
+	at org.springframework.ide.eclipse.core.SpringCoreUtils.parseDocument(SpringCoreUtils.java:656)
+	... 8 more
+
+!ENTRY org.springframework.ide.eclipse.metadata 2 1 2020-07-02 16:12:26.968
+!MESSAGE org.xml.sax.SAXParseException; systemId: file:/D:/Source/eclipse/springsource/register/src/main/webapp/WEB-INF/web.xml; lineNumber: 46; columnNumber: 3; 요소 유형 "filter-mapping"은(는) 짝이 맞는 종료 태그 "</filter-mapping>"(으)로 종료되어야 합니다.
+!STACK 0
+java.lang.RuntimeException: org.xml.sax.SAXParseException; systemId: file:/D:/Source/eclipse/springsource/register/src/main/webapp/WEB-INF/web.xml; lineNumber: 46; columnNumber: 3; 요소 유형 "filter-mapping"은(는) 짝이 맞는 종료 태그 "</filter-mapping>"(으)로 종료되어야 합니다.
+	at org.springframework.ide.eclipse.core.SpringCoreUtils.parseDocument(SpringCoreUtils.java:659)
+	at org.springframework.ide.eclipse.core.SpringCoreUtils.parseDocument(SpringCoreUtils.java:639)
+	at org.springframework.ide.eclipse.metadata.locate.DynamicWebProjectBeansConfigLocator.canLocateInProject(DynamicWebProjectBeansConfigLocator.java:245)
+	at org.springframework.ide.eclipse.beans.core.model.locate.AbstractPathMatchingBeansConfigLocator.locateBeansConfigs(AbstractPathMatchingBeansConfigLocator.java:69)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansProject$2.run(BeansProject.java:1174)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansProject.populateAutoDetectedConfigsAndConfigSetsInternally(BeansProject.java:1165)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansProject$1.run(BeansProject.java:1115)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.xml.sax.SAXParseException; systemId: file:/D:/Source/eclipse/springsource/register/src/main/webapp/WEB-INF/web.xml; lineNumber: 46; columnNumber: 3; 요소 유형 "filter-mapping"은(는) 짝이 맞는 종료 태그 "</filter-mapping>"(으)로 종료되어야 합니다.
+	at com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(Unknown Source)
+	at javax.xml.parsers.DocumentBuilder.parse(Unknown Source)
+	at org.springframework.ide.eclipse.core.SpringCoreUtils.parseDocument(SpringCoreUtils.java:656)
+	... 8 more
+
+!ENTRY org.springframework.ide.eclipse.metadata 2 1 2020-07-02 16:19:56.341
+!MESSAGE org.xml.sax.SAXParseException; systemId: file:/D:/Source/eclipse/springsource/register/src/main/webapp/WEB-INF/web.xml; lineNumber: 46; columnNumber: 3; 요소 유형 "filter-mapping"은(는) 짝이 맞는 종료 태그 "</filter-mapping>"(으)로 종료되어야 합니다.
+!STACK 0
+java.lang.RuntimeException: org.xml.sax.SAXParseException; systemId: file:/D:/Source/eclipse/springsource/register/src/main/webapp/WEB-INF/web.xml; lineNumber: 46; columnNumber: 3; 요소 유형 "filter-mapping"은(는) 짝이 맞는 종료 태그 "</filter-mapping>"(으)로 종료되어야 합니다.
+	at org.springframework.ide.eclipse.core.SpringCoreUtils.parseDocument(SpringCoreUtils.java:659)
+	at org.springframework.ide.eclipse.core.SpringCoreUtils.parseDocument(SpringCoreUtils.java:639)
+	at org.springframework.ide.eclipse.metadata.locate.DynamicWebProjectBeansConfigLocator.canLocateInProject(DynamicWebProjectBeansConfigLocator.java:209)
+	at org.springframework.ide.eclipse.beans.core.model.locate.AbstractPathMatchingBeansConfigLocator.locateBeansConfigs(AbstractPathMatchingBeansConfigLocator.java:69)
+	at org.springframework.ide.eclipse.beans.core.model.locate.AbstractBeansConfigLocator.isBeansConfig(AbstractBeansConfigLocator.java:44)
+	at org.springframework.ide.eclipse.beans.core.internal.model.resources.BeansResourceChangeListener$BeansResourceVisitor.isAutoDetectedConfig(BeansResourceChangeListener.java:175)
+	at org.springframework.ide.eclipse.beans.core.internal.model.resources.BeansResourceChangeListener$BeansResourceVisitor.resourceAdded(BeansResourceChangeListener.java:96)
+	at org.springframework.ide.eclipse.core.internal.model.resources.SpringResourceChangeListener$SpringResourceVisitor.visit(SpringResourceChangeListener.java:145)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:67)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.springframework.ide.eclipse.core.internal.model.resources.SpringResourceChangeListener.resourceChanged(SpringResourceChangeListener.java:83)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:305)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:295)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:158)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:366)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:150)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:244)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.xml.sax.SAXParseException; systemId: file:/D:/Source/eclipse/springsource/register/src/main/webapp/WEB-INF/web.xml; lineNumber: 46; columnNumber: 3; 요소 유형 "filter-mapping"은(는) 짝이 맞는 종료 태그 "</filter-mapping>"(으)로 종료되어야 합니다.
+	at com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(Unknown Source)
+	at javax.xml.parsers.DocumentBuilder.parse(Unknown Source)
+	at org.springframework.ide.eclipse.core.SpringCoreUtils.parseDocument(SpringCoreUtils.java:656)
+	... 22 more
+
+!ENTRY org.springframework.ide.eclipse.metadata 2 1 2020-07-02 16:19:56.343
+!MESSAGE org.xml.sax.SAXParseException; systemId: file:/D:/Source/eclipse/springsource/register/src/main/webapp/WEB-INF/web.xml; lineNumber: 46; columnNumber: 3; 요소 유형 "filter-mapping"은(는) 짝이 맞는 종료 태그 "</filter-mapping>"(으)로 종료되어야 합니다.
+!STACK 0
+java.lang.RuntimeException: org.xml.sax.SAXParseException; systemId: file:/D:/Source/eclipse/springsource/register/src/main/webapp/WEB-INF/web.xml; lineNumber: 46; columnNumber: 3; 요소 유형 "filter-mapping"은(는) 짝이 맞는 종료 태그 "</filter-mapping>"(으)로 종료되어야 합니다.
+	at org.springframework.ide.eclipse.core.SpringCoreUtils.parseDocument(SpringCoreUtils.java:659)
+	at org.springframework.ide.eclipse.core.SpringCoreUtils.parseDocument(SpringCoreUtils.java:639)
+	at org.springframework.ide.eclipse.metadata.locate.DynamicWebProjectBeansConfigLocator.canLocateInProject(DynamicWebProjectBeansConfigLocator.java:245)
+	at org.springframework.ide.eclipse.beans.core.model.locate.AbstractPathMatchingBeansConfigLocator.locateBeansConfigs(AbstractPathMatchingBeansConfigLocator.java:69)
+	at org.springframework.ide.eclipse.beans.core.model.locate.AbstractBeansConfigLocator.isBeansConfig(AbstractBeansConfigLocator.java:44)
+	at org.springframework.ide.eclipse.beans.core.internal.model.resources.BeansResourceChangeListener$BeansResourceVisitor.isAutoDetectedConfig(BeansResourceChangeListener.java:175)
+	at org.springframework.ide.eclipse.beans.core.internal.model.resources.BeansResourceChangeListener$BeansResourceVisitor.resourceAdded(BeansResourceChangeListener.java:96)
+	at org.springframework.ide.eclipse.core.internal.model.resources.SpringResourceChangeListener$SpringResourceVisitor.visit(SpringResourceChangeListener.java:145)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:67)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.springframework.ide.eclipse.core.internal.model.resources.SpringResourceChangeListener.resourceChanged(SpringResourceChangeListener.java:83)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:305)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:295)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:158)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:366)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:150)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:244)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.xml.sax.SAXParseException; systemId: file:/D:/Source/eclipse/springsource/register/src/main/webapp/WEB-INF/web.xml; lineNumber: 46; columnNumber: 3; 요소 유형 "filter-mapping"은(는) 짝이 맞는 종료 태그 "</filter-mapping>"(으)로 종료되어야 합니다.
+	at com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(Unknown Source)
+	at javax.xml.parsers.DocumentBuilder.parse(Unknown Source)
+	at org.springframework.ide.eclipse.core.SpringCoreUtils.parseDocument(SpringCoreUtils.java:656)
+	... 22 more
+
+!ENTRY org.springframework.ide.eclipse.metadata 2 1 2020-07-02 16:19:56.370
+!MESSAGE org.xml.sax.SAXParseException; systemId: file:/D:/Source/eclipse/springsource/register/src/main/webapp/WEB-INF/web.xml; lineNumber: 46; columnNumber: 3; 요소 유형 "filter-mapping"은(는) 짝이 맞는 종료 태그 "</filter-mapping>"(으)로 종료되어야 합니다.
+!STACK 0
+java.lang.RuntimeException: org.xml.sax.SAXParseException; systemId: file:/D:/Source/eclipse/springsource/register/src/main/webapp/WEB-INF/web.xml; lineNumber: 46; columnNumber: 3; 요소 유형 "filter-mapping"은(는) 짝이 맞는 종료 태그 "</filter-mapping>"(으)로 종료되어야 합니다.
+	at org.springframework.ide.eclipse.core.SpringCoreUtils.parseDocument(SpringCoreUtils.java:659)
+	at org.springframework.ide.eclipse.core.SpringCoreUtils.parseDocument(SpringCoreUtils.java:639)
+	at org.springframework.ide.eclipse.metadata.locate.DynamicWebProjectBeansConfigLocator.canLocateInProject(DynamicWebProjectBeansConfigLocator.java:209)
+	at org.springframework.ide.eclipse.beans.core.model.locate.AbstractPathMatchingBeansConfigLocator.locateBeansConfigs(AbstractPathMatchingBeansConfigLocator.java:69)
+	at org.springframework.ide.eclipse.beans.core.model.locate.AbstractBeansConfigLocator.isBeansConfig(AbstractBeansConfigLocator.java:44)
+	at org.springframework.ide.eclipse.beans.core.internal.model.resources.BeansResourceChangeListener$BeansResourceVisitor.isAutoDetectedConfig(BeansResourceChangeListener.java:175)
+	at org.springframework.ide.eclipse.beans.core.internal.model.resources.BeansResourceChangeListener$BeansResourceVisitor.resourceAdded(BeansResourceChangeListener.java:96)
+	at org.springframework.ide.eclipse.core.internal.model.resources.SpringResourceChangeListener$SpringResourceVisitor.visit(SpringResourceChangeListener.java:145)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:67)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.springframework.ide.eclipse.core.internal.model.resources.SpringResourceChangeListener.resourceChanged(SpringResourceChangeListener.java:83)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:305)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:295)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:158)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:366)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:157)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:244)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.xml.sax.SAXParseException; systemId: file:/D:/Source/eclipse/springsource/register/src/main/webapp/WEB-INF/web.xml; lineNumber: 46; columnNumber: 3; 요소 유형 "filter-mapping"은(는) 짝이 맞는 종료 태그 "</filter-mapping>"(으)로 종료되어야 합니다.
+	at com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(Unknown Source)
+	at javax.xml.parsers.DocumentBuilder.parse(Unknown Source)
+	at org.springframework.ide.eclipse.core.SpringCoreUtils.parseDocument(SpringCoreUtils.java:656)
+	... 22 more
+
+!ENTRY org.springframework.ide.eclipse.metadata 2 1 2020-07-02 16:19:56.372
+!MESSAGE org.xml.sax.SAXParseException; systemId: file:/D:/Source/eclipse/springsource/register/src/main/webapp/WEB-INF/web.xml; lineNumber: 46; columnNumber: 3; 요소 유형 "filter-mapping"은(는) 짝이 맞는 종료 태그 "</filter-mapping>"(으)로 종료되어야 합니다.
+!STACK 0
+java.lang.RuntimeException: org.xml.sax.SAXParseException; systemId: file:/D:/Source/eclipse/springsource/register/src/main/webapp/WEB-INF/web.xml; lineNumber: 46; columnNumber: 3; 요소 유형 "filter-mapping"은(는) 짝이 맞는 종료 태그 "</filter-mapping>"(으)로 종료되어야 합니다.
+	at org.springframework.ide.eclipse.core.SpringCoreUtils.parseDocument(SpringCoreUtils.java:659)
+	at org.springframework.ide.eclipse.core.SpringCoreUtils.parseDocument(SpringCoreUtils.java:639)
+	at org.springframework.ide.eclipse.metadata.locate.DynamicWebProjectBeansConfigLocator.canLocateInProject(DynamicWebProjectBeansConfigLocator.java:245)
+	at org.springframework.ide.eclipse.beans.core.model.locate.AbstractPathMatchingBeansConfigLocator.locateBeansConfigs(AbstractPathMatchingBeansConfigLocator.java:69)
+	at org.springframework.ide.eclipse.beans.core.model.locate.AbstractBeansConfigLocator.isBeansConfig(AbstractBeansConfigLocator.java:44)
+	at org.springframework.ide.eclipse.beans.core.internal.model.resources.BeansResourceChangeListener$BeansResourceVisitor.isAutoDetectedConfig(BeansResourceChangeListener.java:175)
+	at org.springframework.ide.eclipse.beans.core.internal.model.resources.BeansResourceChangeListener$BeansResourceVisitor.resourceAdded(BeansResourceChangeListener.java:96)
+	at org.springframework.ide.eclipse.core.internal.model.resources.SpringResourceChangeListener$SpringResourceVisitor.visit(SpringResourceChangeListener.java:145)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:67)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.springframework.ide.eclipse.core.internal.model.resources.SpringResourceChangeListener.resourceChanged(SpringResourceChangeListener.java:83)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:305)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:295)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:158)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:366)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:157)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:244)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.xml.sax.SAXParseException; systemId: file:/D:/Source/eclipse/springsource/register/src/main/webapp/WEB-INF/web.xml; lineNumber: 46; columnNumber: 3; 요소 유형 "filter-mapping"은(는) 짝이 맞는 종료 태그 "</filter-mapping>"(으)로 종료되어야 합니다.
+	at com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(Unknown Source)
+	at javax.xml.parsers.DocumentBuilder.parse(Unknown Source)
+	at org.springframework.ide.eclipse.core.SpringCoreUtils.parseDocument(SpringCoreUtils.java:656)
+	... 22 more
+
+!ENTRY org.eclipse.jst.server.core 4 0 2020-07-02 16:57:05.080
+!MESSAGE Could not launch in profiling mode because no profilers are configured.
+!SESSION 2020-07-03 09:08:09.914 -----------------------------------------------
+eclipse.buildId=4.14.0.I20191210-0610
+java.version=1.8.0_241
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.glassfish.jersey.ext.entityfiltering 4 0 2020-07-03 09:08:15.119
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.glassfish.jersey.ext.entityfiltering [1112]
+  Unresolved requirement: Import-Package: javax.xml.bind; version="[2.3.0,3.0.0)"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:462)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1844)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1837)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1778)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1742)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1664)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.springframework.ide.eclipse.boot.dash.cf 4 0 2020-07-03 09:08:15.134
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.springframework.ide.eclipse.boot.dash.cf [1149]
+  Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.boot.wizard
+    -> Bundle-SymbolicName: org.springframework.ide.eclipse.boot.wizard; bundle-version="3.9.13.202006180736-RELEASE"; singleton:="true"
+       org.springframework.ide.eclipse.boot.wizard [1158]
+         Unresolved requirement: Import-Package: org.glassfish.jersey.jackson; version="2.30.0"
+           -> Export-Package: org.glassfish.jersey.jackson; bundle-symbolic-name="org.glassfish.jersey.media.jersey-media-json-jackson"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="javax.ws.rs.core"
+              org.glassfish.jersey.media.jersey-media-json-jackson [1114]
+                Unresolved requirement: Import-Package: org.glassfish.jersey.message.filtering; version="[2.30.0,3.0.0)"
+                  -> Export-Package: org.glassfish.jersey.message.filtering; bundle-symbolic-name="org.glassfish.jersey.ext.entityfiltering"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="javax.annotation,javax.annotation.security,javax.inject,javax.ws.rs.core,org.glassfish.jersey.message.filtering.spi"
+                     org.glassfish.jersey.ext.entityfiltering [1112]
+                       Unresolved requirement: Import-Package: javax.xml.bind; version="[2.3.0,3.0.0)"
+                Unresolved requirement: Import-Package: org.glassfish.jersey.message.filtering.spi; version="[2.30.0,3.0.0)"
+                  -> Export-Package: org.glassfish.jersey.message.filtering.spi; bundle-symbolic-name="org.glassfish.jersey.ext.entityfiltering"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="org.glassfish.jersey.spi"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:462)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1844)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1837)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1778)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1742)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1664)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.springframework.ide.eclipse.boot.wizard 4 0 2020-07-03 09:08:15.134
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.springframework.ide.eclipse.boot.wizard [1158]
+  Unresolved requirement: Import-Package: org.glassfish.jersey.jackson; version="2.30.0"
+    -> Export-Package: org.glassfish.jersey.jackson; bundle-symbolic-name="org.glassfish.jersey.media.jersey-media-json-jackson"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="javax.ws.rs.core"
+       org.glassfish.jersey.media.jersey-media-json-jackson [1114]
+         Unresolved requirement: Import-Package: org.glassfish.jersey.message.filtering; version="[2.30.0,3.0.0)"
+           -> Export-Package: org.glassfish.jersey.message.filtering; bundle-symbolic-name="org.glassfish.jersey.ext.entityfiltering"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="javax.annotation,javax.annotation.security,javax.inject,javax.ws.rs.core,org.glassfish.jersey.message.filtering.spi"
+              org.glassfish.jersey.ext.entityfiltering [1112]
+                Unresolved requirement: Import-Package: javax.xml.bind; version="[2.3.0,3.0.0)"
+         Unresolved requirement: Import-Package: org.glassfish.jersey.message.filtering.spi; version="[2.30.0,3.0.0)"
+           -> Export-Package: org.glassfish.jersey.message.filtering.spi; bundle-symbolic-name="org.glassfish.jersey.ext.entityfiltering"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="org.glassfish.jersey.spi"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:462)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1844)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1837)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1778)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1742)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1664)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.springframework.ide.eclipse.buildship20 4 0 2020-07-03 09:08:15.134
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.springframework.ide.eclipse.buildship20 [1159]
+  Unresolved requirement: Require-Bundle: org.eclipse.buildship.core; bundle-version="[2.0.0,3.0.0)"; resolution:="optional"
+  Unresolved requirement: Require-Bundle: com.gradleware.tooling.model; resolution:="optional"
+  Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.boot.wizard
+    -> Bundle-SymbolicName: org.springframework.ide.eclipse.boot.wizard; bundle-version="3.9.13.202006180736-RELEASE"; singleton:="true"
+       org.springframework.ide.eclipse.boot.wizard [1158]
+         Unresolved requirement: Import-Package: org.glassfish.jersey.jackson; version="2.30.0"
+           -> Export-Package: org.glassfish.jersey.jackson; bundle-symbolic-name="org.glassfish.jersey.media.jersey-media-json-jackson"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="javax.ws.rs.core"
+              org.glassfish.jersey.media.jersey-media-json-jackson [1114]
+                Unresolved requirement: Import-Package: org.glassfish.jersey.message.filtering; version="[2.30.0,3.0.0)"
+                  -> Export-Package: org.glassfish.jersey.message.filtering; bundle-symbolic-name="org.glassfish.jersey.ext.entityfiltering"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="javax.annotation,javax.annotation.security,javax.inject,javax.ws.rs.core,org.glassfish.jersey.message.filtering.spi"
+                     org.glassfish.jersey.ext.entityfiltering [1112]
+                       Unresolved requirement: Import-Package: javax.xml.bind; version="[2.3.0,3.0.0)"
+                Unresolved requirement: Import-Package: org.glassfish.jersey.message.filtering.spi; version="[2.30.0,3.0.0)"
+                  -> Export-Package: org.glassfish.jersey.message.filtering.spi; bundle-symbolic-name="org.glassfish.jersey.ext.entityfiltering"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="org.glassfish.jersey.spi"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:462)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1844)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1837)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1778)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1742)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1664)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.springframework.ide.eclipse.buildship30 4 0 2020-07-03 09:08:15.134
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.springframework.ide.eclipse.buildship30 [1160]
+  Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.boot.wizard
+    -> Bundle-SymbolicName: org.springframework.ide.eclipse.boot.wizard; bundle-version="3.9.13.202006180736-RELEASE"; singleton:="true"
+       org.springframework.ide.eclipse.boot.wizard [1158]
+         Unresolved requirement: Import-Package: org.glassfish.jersey.jackson; version="2.30.0"
+           -> Export-Package: org.glassfish.jersey.jackson; bundle-symbolic-name="org.glassfish.jersey.media.jersey-media-json-jackson"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="javax.ws.rs.core"
+              org.glassfish.jersey.media.jersey-media-json-jackson [1114]
+                Unresolved requirement: Import-Package: org.glassfish.jersey.message.filtering; version="[2.30.0,3.0.0)"
+                  -> Export-Package: org.glassfish.jersey.message.filtering; bundle-symbolic-name="org.glassfish.jersey.ext.entityfiltering"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="javax.annotation,javax.annotation.security,javax.inject,javax.ws.rs.core,org.glassfish.jersey.message.filtering.spi"
+                     org.glassfish.jersey.ext.entityfiltering [1112]
+                       Unresolved requirement: Import-Package: javax.xml.bind; version="[2.3.0,3.0.0)"
+                Unresolved requirement: Import-Package: org.glassfish.jersey.message.filtering.spi; version="[2.30.0,3.0.0)"
+                  -> Export-Package: org.glassfish.jersey.message.filtering.spi; bundle-symbolic-name="org.glassfish.jersey.ext.entityfiltering"; bundle-version="2.30.1.v20200513-1859"; version="2.30.1"; uses:="org.glassfish.jersey.spi"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:462)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:1844)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:136)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1837)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1778)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1742)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1664)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.jface 2 0 2020-07-03 09:08:21.805
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-07-03 09:08:21.805
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@66ca8882,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4c0989f7,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2020-07-03 09:08:37.412
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\students'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.

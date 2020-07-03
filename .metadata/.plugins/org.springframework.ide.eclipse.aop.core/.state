@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
+<aop-project name="register"/>
 <aop-project name="aop"/>
 <aop-project name="mybatis"/>
 <aop-project name="log"/>
@@ -14,13 +15,13 @@
 <aop-project name="simpleBook_cp_jdbcDao"/>
 <aop-project name="webmvc"/>
 <aop-project name="simpleBook_cp"/>
-<aop-project name="test"/>
 <aop-project name="aop_factorial">
 <aspect-definition advice-class-name="com.spring.factorial.TimeAspect" advice-method-name="measure(org.aspectj.lang.ProceedingJoinPoint)" advice-type="AROUND" aspect-end-line-number="11" aspect-name="timeAspect" aspect-start-line-number="11" factory-id="org.springframework.ide.eclipse.aop.core.annotationAspectDefinitionElementFactory" file="/aop_factorial/src/main/resources/config.xml" pointcut-expression="execution(* com.spring.factorial..*(..))" proxy-target-class="false">
 <aop-reference advice-type="AROUND" bean="1:BeansModel|2:aop_factorial|3:src/main/resources/config.xml|7:beans:8|8:forc:8" bean-file="/aop_factorial/src/main/resources/config.xml" bean-start-line="8" factory-id="org.springframework.ide.eclipse.aop.core.aopReferenceElementFactory" file="/aop_factorial/src/main/resources/config.xml" source="=aop_factorial/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.spring.factorial{TimeAspect.java[TimeAspect~measure~QProceedingJoinPoint;" source-start-line="12" target="=aop_factorial/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.spring.factorial{ForCalcurator.java[ForCalcurator~factorial~J" target-start-line="9"/>
 <aop-reference advice-type="AROUND" bean="1:BeansModel|2:aop_factorial|3:src/main/resources/config.xml|7:beans:8|8:rec:8" bean-file="/aop_factorial/src/main/resources/config.xml" bean-start-line="8" factory-id="org.springframework.ide.eclipse.aop.core.aopReferenceElementFactory" file="/aop_factorial/src/main/resources/config.xml" source="=aop_factorial/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.spring.factorial{TimeAspect.java[TimeAspect~measure~QProceedingJoinPoint;" source-start-line="12" target="=aop_factorial/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.spring.factorial{RecCalcurator.java[RecCalcurator~factorial~J" target-start-line="9"/>
 </aspect-definition>
 </aop-project>
+<aop-project name="test"/>
 <aop-project name="simpleMember_cp"/>
 <aop-project name="simpleboard_mybatis"/>
 <aop-project name="simpleBook"/>
