@@ -5,4 +5,19 @@
 	<select id="login" resultType="com.spring.domain.AuthVO">
 		select userid, name from member where userid=#{userid} and password=#{password}
 	</select>
+	
+	<!-- userid와 일치하는 비밀번호 추출 -->
+	<select id="getPassword" resultType="java.lang.String">
+		select password from member where userid=#{userid}
+	</select>
+	
+	<!-- 비밀번호 수정 -->
+	<update id="updatePwd">
+		update member set password=#{new_password} where userid=#{userid} 
+	</update>
+	
+	<!-- 회원 탈퇴 -->
+	<delete id="deleteMember">
+		delete from member where userid=#{userid}
+	</delete>
 </mapper>

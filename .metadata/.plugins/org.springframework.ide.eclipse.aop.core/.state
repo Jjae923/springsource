@@ -11,6 +11,7 @@
 </aop-project>
 <aop-project name="simpleboard"/>
 <aop-project name="simpleMember"/>
+<aop-project name="bookmvc"/>
 <aop-project name="simpleboard_cp_jdbc"/>
 <aop-project name="simpleBook_cp_jdbcDao"/>
 <aop-project name="webmvc"/>

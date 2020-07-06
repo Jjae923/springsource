@@ -8,4 +8,8 @@
 <typeInfo handle="=transaction/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.spring.mapper{SampleMapper2.java[SampleMapper2" modifiers="513" timestamp="1593566612749"/>
 <typeInfo handle="=transaction/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.spring.service{SampleService.java[SampleService" modifiers="513" timestamp="1593564292701"/>
 <typeInfo handle="=transaction/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.spring.mapper{SampleMapper1.java[SampleMapper1" modifiers="513" timestamp="1593566612759"/>
+<typeInfo handle="=register/D:\/JProgram\/eclipse\/lib\/rt.jar=/owner.project.facets=/java=/=/javadoc_location=/https:\/\/docs.oracle.com\/javase\/8\/docs\/api\/=/&lt;javax.imageio.spi(RegisterableService.class[RegisterableService" modifiers="1537" timestamp="1591337977975"/>
+<typeInfo handle="=register/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.spring.mapper{RegisterMapper.java[RegisterMapper" modifiers="513" timestamp="1593757717121"/>
+<typeInfo handle="=register/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.spring.service{MemberService.java[MemberService" modifiers="513" timestamp="1594015355229"/>
+<typeInfo handle="=bookmvc/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.spring.service{BookService.java[BookService" modifiers="513" timestamp="1594020363940"/>
 </typeInfoHistroy>
