@@ -29,8 +29,7 @@ pageEncoding="UTF-8"%>
     <script>
       $(function () {
         //페이지 로드시 첫 메뉴에 해당하는 것 보여주기
-
-        $("#myList a[href='#all']").tab("show");
+        $("#myList a[href='#search']").tab("show");
       });
     </script>
   </head>
@@ -82,7 +81,11 @@ pageEncoding="UTF-8"%>
         </div>
         <div class="col-xl-9">
           <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade" id="all" role="tabpanel">
+            <div class="tab-pane fade" id="all" role="tabpanel"></div>
+            <div class="tab-pane fade" id="delete" role="tabpanel">
+              <jsp:include page="book_delete.jsp"></jsp:include>
+            </div>
+            <div class="tab-pane fade" id="search" role="tabpanel">
               <table class="table table-bordered">
                 <thead class="thead-dark">
                   <th scope="col">코 드</th>
@@ -102,12 +105,6 @@ pageEncoding="UTF-8"%>
                 </tbody>
               </table>
             </div>
-            <div class="tab-pane fade" id="delete" role="tabpanel">
-              <jsp:include page="book_delete.jsp"></jsp:include>
-            </div>
-            <div class="tab-pane fade" id="search" role="tabpanel">
-              <jsp:include page="book_search.jsp"></jsp:include>
-            </div>
             <div class="tab-pane fade" id="modify" role="tabpanel">
               <jsp:include page="book_modify.jsp"></jsp:include>
             </div>
@@ -118,5 +115,13 @@ pageEncoding="UTF-8"%>
         </div>
       </div>
     </div>
+    <script>
+      $('#myList a[href="#search"]').click(function (e) {
+        location.href = "search"; // get방식
+      });
+      $('#myList a[href="#all"]').click(function (e) {
+        location.href = "select";
+      });
+    </script>
   </body>
 </html>

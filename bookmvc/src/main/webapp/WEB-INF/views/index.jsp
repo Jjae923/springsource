@@ -22,6 +22,11 @@ pageEncoding="UTF-8"%>
     ></script>
     <script>
       $(function () {
+    	  // 오류 발생 시 첫 메뉴로 돌아오도록
+    	  let tab = '${tab}'; 
+    	  if(tab === ''){
+    		  tab = 'insert';
+    	  }
         //페이지 로드시 첫 메뉴에 해당하는 것 보여주기
         $('#myList a[href="#insert"]').tab("show");
       });
@@ -77,26 +82,26 @@ pageEncoding="UTF-8"%>
           <div class="tab-content" id="nav-tabContent">
             <!-- all이 호출되는 경우에는 페이지 전환 book_select_result.jsp로 -->
             <div class="tab-pane fade" id="delete" role="tabpanel">
-              <jsp:include page="book/book_delete.jsp" flush="false" />
+              <jsp:include page="book_delete.jsp" flush="false" />
             </div>
             <div class="tab-pane fade" id="search" role="tabpanel">
-              <jsp:include page="book/book_search.jsp" flush="false" />
+              <jsp:include page="book_search.jsp" flush="false" />
             </div>
             <div class="tab-pane fade" id="modify" role="tabpanel">
-              <jsp:include page="book/book_modify.jsp" flush="false" />
+              <jsp:include page="book_modify.jsp" flush="false" />
             </div>
             <div class="tab-pane fade active" id="insert" role="tabpanel">
-              <jsp:include page="book/book_insert.jsp" flush="false" />
+              <jsp:include page="book_insert.jsp" flush="false" />
             </div>
           </div>
         </div>
       </div>
     </div>
     <script>
-    // 도서목록보기 클릭 시 이동
+      // 도서목록보기 클릭 시 이동
       $('#myList a[href="#all"]').click(function (e) {
     	  // http://localhost:8080/book/select
-        location.href = "/book/select";
+        location.href = "select";
       });
     </script>
   </body>

@@ -11,11 +11,11 @@ public interface BookService {
 	// 도서 정보 입력 => insert(code, title, writer, price)
 	public boolean insert(BookVO vo);
 	
-	// 도서 정보 수정 
-	public boolean modify(String code, int price);
-	
 	// 도서 정보 삭제
 	public boolean delete(String code);
+	
+	// 도서 정보 수정 
+	public boolean modify(String code, int price);
 	
 	// 도서 정보 검색
 	public List<BookVO> getSearchList(String criteria, String keyword);

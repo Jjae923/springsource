@@ -5,6 +5,30 @@
 	<select id="select" resultType="com.spring.domain.BookVO">
 		select * from bookTBL
 	</select>
-
-
+	
+	<!-- 도서 목록 입력 -->
+	<insert id="insert">
+		insert into bookTBL(code, title, writer, price) values(#{code}, #{title}, #{writer}, #{price})
+	</insert>
+	
+	<!-- 도서 목록 삭제 -->
+	<delete id="delete">
+		delete from bookTBL where code=#{code}
+	</delete>
+	
+	<!-- 도서 목록 수정 -->
+	<update id="modify">
+		update bookTBL set price=#{price} where code=#{code} 
+	</update>
+	
+	<!-- 도서 목록 검색 -->
+	<select id="search" resultType="com.spring.domain.BookVO">
+		select * from bookTBL where
+		<if test="criteria=='code'.toString()">
+			code=#{keyword}
+		</if>
+		<if test="criteria=='writer'.toString()">
+			writer like '%' || #{keyword} || '%'
+		</if>
+	</select>
 </mapper>

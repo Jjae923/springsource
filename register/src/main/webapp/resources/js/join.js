@@ -1,21 +1,20 @@
 /**
  * joinForm.jsp 유효성 검증하기
  */
-// 규칙
-// 아이디 : 영문자, 숫자, 특수문자 조합으로 6~12자리
-// 비밀번호 : 영문자, 숫자, 특수문자 조합으로 8~15자리
-// 이름 : 2~4자리 입력 가능
-// 성별 : 필수 입력
-// 이메일 : 필수 입력, 이메일 검증
-
+//규칙
+//아이디 : 영문자, 숫자, 특수문자 조합으로 6~12자리
+//비밀번호 : 영문자, 숫자, 특수문자 조합으로 8~15자리
+//이름 : 2~4자리 입력 가능
+//성별 : 필수입력
+//이메일 : 필수입력, 이메일 검증
 $(function(){
 	$("#regist").validate({
-		// 규칙명시
+		//규칙명시
 		rules:{
 			userid:{
-				required : true,
+				required: true,
 				validID : true,
-				remote : { // validate 메뉴얼 => ajax가 아닌 remote로 표기
+				remote : {
 					url : "/register/checkId",
 					type : "post",
 					data : {
@@ -26,17 +25,17 @@ $(function(){
 				}
 			},
 			password:{
-				required : true,
-				validPWD : true
+				required : true,				
+				validPWD : true			
 			},
 			confirm_password:{
-				required : true,
+				required : true,				
 				validPWD : true,
 				equalTo : "#password"
 			},
-			name:{
+			name : {
 				required : true,
-				validNAME : true
+				rangelength : [2,4]
 			},
 			gender:{
 				required : true
@@ -44,49 +43,48 @@ $(function(){
 			email:{
 				required : true,
 				email : true
-			}
-		}, // 규칙 끝 
-		// 메세지
+			}	
+		},
+		//메세지
 		messages:{
 			userid:{
-				required : "아이디는 필수 속성입니다.",
+				required:"아이디는 필수 속성입니다.",
 				remote : "이 아이디는 사용중입니다."
 			},
 			password:{
-				required : "비밀번호는 필수 속성입니다."
+				required:"비밀번호는 필수 속성입니다."
 			},
 			confirm_password:{
-				required : "비밀번호는 필수 속성입니다.",
-				equalTo : "입력한 비밀번호와 다릅니다."
+				required: "비밀번호는 필수 속성입니다.",
+				equalTo : "이전 비밀번호와 다릅니다."
 			},
 			name:{
-				required : "이름은 필수 속성입니다."
+				required: "이름은 필수 속성입니다.",
+				rangelength : "이름을 확인해 주세요",
 			},
 			gender:{
-				required : "성별은 필수 속성입니다."
+				required : "성별을 선택해 주세요"
 			},
 			email:{
 				required : "이메일은 필수 속성입니다.",
-				email : "이메일을 확인해주세요."
+				email : "이메일을 확인해 주세요"
 			}
-		},// messages end
-		// 에러메세지 위치 지정
-		errorPlacement:function(error,element){ 
-			$(element).closest("form").find("small[id='"+element.attr("id")+"']").append(error);
+		},//messages end
+		errorPlacement:function(error,element){ //에러메시지 위치 지정			
+			$(element).closest("form").find("small[id='"+element.attr("id")+"']").append(error);				
 		}
-	})
+	})	
 })
-
-// 유효성 검증
+//규칙을 검증할 메소드 추가
 $.validator.addMethod("validID",function(value){
-	const regId = /(?=.*[A-z])(?=.*\d)(?=.*[!@#$%^&*])[A-z\d!@#$%^&*]{6,12}/;
-	return regId.test(value);
-}, "아이디는 영문자, 숫자, 특수문자의 조합으로 6~12자리 만들어야 합니다.");
+	const regId = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,12}$/;
+	return regId.test(value);	
+},"아이디는 영문자,숫자,특수문자의 조합으로 6~12자리로 만들어야 합니다.");
 $.validator.addMethod("validPWD",function(value){
-	const regPwd = /(?=^[A-z])(?=.*\d)(?=.*[!@#$%^&*])[A-z\d!@#$%^&*]{8,15}$/;
-	return regPwd.test(value);
-}, "비밀번호는 영문자, 숫자, 특수문자의 조합으로 8~15자리 만들어야 합니다.");
-$.validator.addMethod("validNAME",function(value){
-	const regName = /^[가-힣]{2,4}$/;
-	return regName.test(value);
-}, "이름은 2~4자리로 입력해주세요.");
+	const regPwd = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,15}$/;
+	return regPwd.test(value);	
+},"비밀번호는 영문자,숫자,특수문자의 조합으로 8~15자리로 만들어야 합니다.");
+
+
+
+

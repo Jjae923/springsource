@@ -21,22 +21,21 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public boolean insert(BookVO vo) {
-		return false;
+		return mapper.insert(vo)==1? true:false;
+	}
+	
+	@Override
+	public boolean delete(String code) {
+		return mapper.delete(code)==1? true:false;
 	}
 
 	@Override
 	public boolean modify(String code, int price) {
-		return false;
-	}
-
-	@Override
-	public boolean delete(String code) {
-		return false;
+		return mapper.modify(code, price)==1? true:false;
 	}
 
 	@Override
 	public List<BookVO> getSearchList(String criteria, String keyword) {
-		return null;
+		return mapper.search(criteria, keyword);
 	}
-
 }
