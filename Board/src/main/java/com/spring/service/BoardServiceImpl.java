@@ -18,4 +18,24 @@ public class BoardServiceImpl implements BoardService {
 	public List<BoardVO> getList() {
 		return mapper.list();
 	}
+
+	@Override
+	public boolean insertBoard(BoardVO vo) {
+		return mapper.insert(vo)==1? true:false;
+	}
+
+	@Override
+	public BoardVO readBoard(int bno) {
+		return mapper.read(bno);
+	}
+
+	@Override
+	public boolean modifyBoard(BoardVO vo) {
+		return mapper.modify(vo)==1? true:false;
+	}
+
+	@Override
+	public boolean deleteBoard(int bno) {
+		return mapper.delete(bno)==1? true:false;
+	}
 }

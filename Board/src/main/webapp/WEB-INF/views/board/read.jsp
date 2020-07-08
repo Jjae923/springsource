@@ -20,25 +20,47 @@
                 			<form action="" role="form">
                 				<div class="form-group">
                 					<label>Bno</label>
-                					<input class="form-control" name="bno" readonly="readonly">                				
+                					<input class="form-control" name="bno" readonly="readonly" value="${vo.bno}">                				
                 				</div> 
                 				<div class="form-group">
                 					<label>Title</label>
-                					<input class="form-control" name="title" readonly="readonly">                				
+                					<input class="form-control" name="title" readonly="readonly" value="${vo.title}">                				
                 				</div>  
                 				<div class="form-group">
                 					<label>Content</label>
-                					<textarea class="form-control" rows="3" name="content" readonly="readonly"></textarea>               				
+                					<textarea class="form-control" rows="3" name="content" readonly="readonly">${vo.content}</textarea>               				
                 				</div> 
                 				<div class="form-group">
                 					<label>Writer</label>
-                					<input class="form-control" name="writer" readonly="readonly">                				
+                					<input class="form-control" name="writer" readonly="readonly" value="${vo.writer}">
                 				</div>  
                 				<button type="button" class="btn btn-default">Modify</button>     			
-                				<button type="reset" class="btn btn-info">List</button>          			
+                				<button type="reset" class="btn btn-info" >List</button>          			
                 			</form>
                 		</div>
                 	</div>
                 </div>
             </div>           
+<%-- 페이지 나누기와 다른 작업들을 위해서 폼 작성 --%>
+<form action="" id="myForm">
+	<input type="hidden" name="bno" value="${vo.bno}" />
+	<input type="hidden" name="" value="${vo.bno}" />
+</form>
+<script>
+$(function(){
+	let form = $("#myForm");
+	
+	$(".btn-default").click(function(){
+		form.attr('action','modify'); // http://localhost:8080/board/modify
+		form.submit();
+	})
+	
+	$(".btn-info").click(function(){
+		form.attr('action','list'); // http://localhost:8080/board/list
+		// bno는 삭제하기
+		form.find("input[name='bno']").remove();
+		form.submit();
+	})
+})
+</script>
 <%@include file="../includes/footer.jsp" %>       

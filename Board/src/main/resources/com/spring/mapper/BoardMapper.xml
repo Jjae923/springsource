@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.spring.mapper.BoardMapper">
+	<!-- 글 목록 보기 -->
 	<select id="list" resultType="com.spring.domain.BoardVO">
 		select * from spring_board order by bno desc
 	</select>
+	
+	<!-- 글 작성하기 -->
+	<insert id="insert">
+		<selectKey keyProperty="bno" order="BEFORE" resultType="int">
+			<!-- 주로 PK 값을 미리 SQL을 통해서 처리해두고 특정한 이름으로 보관 / bno는 vo에 들어있음 -->
+			select seq_board.nextval from dual
+		</selectKey>
+		insert into spring_board(bno, title, content, writer) values(#{bno}, #{title}, #{content}, #{writer}) <!-- getBno()로 가져오는 것 -->
+	</insert>
+	
+	<!-- bno(PK)에 해당하는 게시글 가져오기 -->
+	<select id="read" resultType="com.spring.domain.BoardVO">
+		select * from spring_board where bno=#{bno}
+	</select>
+	
+	<!-- 게시글 수정하기 -->
+	<update id="modify">
+		update spring_board set title=#{title}, content=#{content} where bno=#{bno}
+	</update>
+	
+	<!-- 게시글 삭제 -->
+	<delete id="delete">
+		delete from spring_board where bno=#{bno}
+	</delete>
 </mapper>

@@ -8,6 +8,6 @@
 <h1>
 	스프링 게시판
 </h1>
-<P><a href="/board/register">게시판 보기 </a></P>
+<P><a href="/board/list">게시판 보기 </a></P>
 </body>
 </html>

@@ -15,7 +15,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Board List Page
-                            <button id='regBtn' type='button' class='btn btn-xs pull-right'>Register New Board</button>
+                            <button id='regBtn' type='button' class='btn btn-xs pull-right btn-success' onclick="location.href='register'">Register New Board</button>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -33,7 +33,7 @@
 								<c:forEach var="vo" items="${list}">
 									<tr>
 										<td>${vo.bno}</td>
-										<td>${vo.title}</td>
+										<td><a href="read?bno=${vo.bno}">${vo.title}</a></td>
 										<td>${vo.writer}</td>
 										<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${vo.regdate}" /></td>
 										<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${vo.updatedate}" /></td>
@@ -67,6 +67,42 @@
                 </div>               
             <!-- /.row -->
 <!-- 모달 추가 -->
-
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">게시글 등록</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>처리가 완료되었습니다.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- 스크립트 -->
-<%@include file="../includes/footer.jsp" %>       
+<script>
+$(function(){
+	let result = '${result}';
+	
+	checkModal(result);
+	
+	history.replaceState({}, null, null);
+	
+	function checkModal(result){
+		if(result === '' || history.state){
+			return;
+		}
+		if(parseInt(result)>0){
+			$(".modal-body").html("게시글 "+parseInt(result)+" 번이 등록되었습니다.");
+		}
+		$("#myModal").modal("show");
+	}
+})
+</script>
+<%@include file="../includes/footer.jsp" %>
