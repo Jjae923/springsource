@@ -27,13 +27,13 @@
                                         <th>작성자</th>
                                         <th>작성일</th>
                                         <th>수정일</th>
-                                    </tr>									
+                                    </tr>
                                 </thead>
 								<!-- 게시판 리스트 반복문 -->
 								<c:forEach var="vo" items="${list}">
 									<tr>
 										<td>${vo.bno}</td>
-										<td><a href="read?bno=${vo.bno}">${vo.title}</a></td>
+										<td><a href="<c:out value='${vo.bno}'/>" class="move">${vo.title}</a></td>
 										<td>${vo.writer}</td>
 										<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${vo.regdate}" /></td>
 										<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${vo.updatedate}" /></td>
@@ -42,20 +42,44 @@
                             </table>
 							<div class="row"> <!-- start search -->
                             	<div class="col-md-12">
-                            	  <div class="col-md-8"><!--search Form-->
-                            		
+                            	   <div class="col-md-8"><!--search Form-->
+                            	  	  <form action="" id="searchForm">
+                            	  	  	 <select name="type" id="">
+                            	  	  	 	<option value="">------</option>
+                            	  	  	 	<option value="T">제목</option>
+                            	  	  	 	<option value="C">내용</option>
+                            	  	  	 	<option value="W">작성자</option>
+                            	  	  	 	<option value="TC">제목 or 내용</option>
+                            	  	  	 	<option value="TW">제목 or 작성자</option>
+                            	  	  	 	<option value="TCW">제목 or 내용 or 작성자</option>
+                            	  	  	 </select>
+                            	  	  	 <input type="text" name="keyword" />
+                            	  	  	 <button class="btn btn-default">검색</button>
+                            	  	  </form>
                             	   </div>
                             	   <div class="col-md-2 col-md-offset-2">
                             	   	<!--페이지 목록 갯수 지정하는 폼-->
+                            	   	<select class="form-control" name="amount" id="amount">
+                            	   		<option value="10" <c:out value="${cri.amount == 10?'selected':''}"/>>10</option>
+                            	   		<option value="20" <c:out value="${cri.amount == 20?'selected':''}"/>>20</option>
+                            	   		<option value="30" <c:out value="${cri.amount == 30?'selected':''}"/>>30</option>
+                            	   		<option value="40" <c:out value="${cri.amount == 40?'selected':''}"/>>40</option>
+                            	   	</select>
 								  </div>
                              	 </div>                             	 
                       		 </div><!-- end search -->
                             <!-- start Pagination -->
                             <div class="text-center">
                             	<ul class="pagination">
-                            		<li class="paginate_button previous"><a href="#">Previous</a>
-                            		<li><a href="#">1234</a>
-                            		<li class="paginate_button next"><a href="#">Next</a>
+                            	  <c:if test="${pageVO.prev}">
+                            		<li class="paginate_button previous"><a href="${pageVO.startPage-1}">Previous</a></li>
+                            	  </c:if>
+                            	  <c:forEach var="idx" begin="${pageVO.startPage}" end="${pageVO.endPage}">
+                            		<li class="paginate_button ${pageVO.cri.pageNum==idx?'active':''}"><a href="${idx}">${idx}</a></li>
+                            	  </c:forEach>
+                            	  <c:if test="${pageVO.next}">
+                            		<li class="paginate_button next"><a href="${pageVO.endPage+1}">Next</a></li>
+                            	  </c:if>
                             	</ul>
                             </div>
                             <!-- end Pagination -->   
@@ -66,6 +90,11 @@
                     </div>                   
                 </div>               
             <!-- /.row -->
+<%-- 페이지 번호를 누르면 동작하는 폼 --%>
+<form action="list" id="actionForm">
+	<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum}" />
+	<input type="hidden" name="amount" value="${pageVO.cri.amount}" />
+</form>
 <!-- 모달 추가 -->
 <div class="modal" tabindex="-1" role="dialog" id="myModal">
   <div class="modal-dialog">
@@ -89,9 +118,7 @@
 <script>
 $(function(){
 	let result = '${result}';
-	
 	checkModal(result);
-	
 	history.replaceState({}, null, null);
 	
 	function checkModal(result){
@@ -103,6 +130,35 @@ $(function(){
 		}
 		$("#myModal").modal("show");
 	}
+	
+	// 사용자가 페이지 번호를 누르면 동작하는 스크립트
+	let actionForm = $("#actionForm");
+	$(".paginate_button a").click(function(e){
+		// a 태그의 동작 막기
+		e.preventDefault();
+		// 전송해야할 폼 가져온 후 pageNum의 값과 amount 값을 변경한 후
+		actionForm.find("input[name='pageNum']").val($(this).attr("href")); // this : $(".paginate_button a")
+		// 폼 전송하기
+		actionForm.submit();
+	})
+	
+	$(".form-control").change(function(){
+		// 전송해야 할 폼 가져온 후 amount 값을 변경한 후
+		actionForm.find("input[name='amount']").val($(this).val()); // this : $(".form-control")
+		// 폼 전송하기
+		actionForm.submit();
+	})
+	
+	// 타이틀 클릭 시 페이지 나누기 정보가 있는 폼 보내기
+	$(".move").click(function(e){
+		// 36번 줄에 
+		// <a href="read?bno=${vo.bno}"$pageNum=${cri.pageNum}&amount=${cri.amount}">${vo.title}</a> 에러 조심
+		// 이렇게 작성하는 부분 대체
+		e.preventDefault();
+		actionForm.append("<input type='hidden' name='bno' value='"+$(this).attr("href")+"' />");
+		actionForm.attr('action','read');
+		actionForm.submit();
+	})
 })
 </script>
 <%@include file="../includes/footer.jsp" %>

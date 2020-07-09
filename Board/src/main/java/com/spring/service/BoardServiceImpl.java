@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.spring.domain.BoardVO;
+import com.spring.domain.Criteria;
 import com.spring.mapper.BoardMapper;
 
 @Service
@@ -15,10 +16,15 @@ public class BoardServiceImpl implements BoardService {
 	private BoardMapper mapper;
 
 	@Override
-	public List<BoardVO> getList() {
-		return mapper.list();
+	public List<BoardVO> getList(Criteria cri) {
+		return mapper.list(cri);
 	}
 
+	@Override
+	public int totalRows() {
+		return mapper.total();
+	}
+	
 	@Override
 	public boolean insertBoard(BoardVO vo) {
 		return mapper.insert(vo)==1? true:false;

@@ -45,6 +45,8 @@
 <%-- remove와 list를 위한 폼 --%>
 <form method="post" id="myForm">
 	<input type="hidden" name="bno" value="${vo.bno}" />
+	<input type="hidden" name="pageNum" value="${cri.pageNum}" />
+	<input type="hidden" name="amount" value="${cri.amount}" />
 </form>
 <%-- 스크립트 --%>
 <script>
