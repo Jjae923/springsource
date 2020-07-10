@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
 <aop-project name="register"/>
+<aop-project name="rest"/>
 <aop-project name="mybatis"/>
 <aop-project name="log"/>
 <aop-project name="simpleboard"/>
@@ -12,6 +13,7 @@
 <aop-project name="test"/>
 <aop-project name="simpleboard_mybatis"/>
 <aop-project name="basic"/>
+<aop-project name="partner"/>
 <aop-project name="simpleboard_cp_jdbcDao"/>
 <aop-project name="simpleBook_mybatis"/>
 <aop-project name="aop"/>

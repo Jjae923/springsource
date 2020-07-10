@@ -50,7 +50,7 @@ public class BoardController {
 		// 현재 페이지에 보여줄 게시물
 		model.addAttribute("list", service.getList(cri));
 		// 하단의 페이지 나누기와 관련된 정보
-		model.addAttribute("pageVO", new PageVO(cri, service.totalRows()));
+		model.addAttribute("pageVO", new PageVO(cri, service.totalRows(cri)));
 	}
 	
 	// 게시글 읽기
@@ -74,6 +74,8 @@ public class BoardController {
 			rttr.addAttribute("bno", vo.getBno());   // addAttribute : parameter로 넘어가는 방식
 			rttr.addAttribute("pageNum", cri.getPageNum());
 			rttr.addAttribute("amount", cri.getAmount());
+			rttr.addAttribute("type", cri.getType());
+			rttr.addAttribute("keyword", cri.getKeyword());
 			return "redirect:read"; 	//  read?bno=3
 		}else {
 			rttr.addAttribute("bno", vo.getBno());
@@ -89,6 +91,8 @@ public class BoardController {
 		if(service.deleteBoard(bno)) {
 			rttr.addAttribute("pageNum", cri.getPageNum());
 			rttr.addAttribute("amount", cri.getAmount());
+			rttr.addAttribute("type", cri.getType());
+			rttr.addAttribute("keyword", cri.getKeyword());
 			rttr.addFlashAttribute("result", "success");
 			return "redirect:list";
 		}else {
@@ -96,25 +100,6 @@ public class BoardController {
 			return "redirect:modify";
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

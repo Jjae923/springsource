@@ -44,17 +44,19 @@
                             	<div class="col-md-12">
                             	   <div class="col-md-8"><!--search Form-->
                             	  	  <form action="" id="searchForm">
+                            	  	  	 <input type="hidden" name="pageNum" value="${cri.pageNum}"/>
+                            	  	  	 <input type="hidden" name="amount" value="${cri.amount}"/>
                             	  	  	 <select name="type" id="">
-                            	  	  	 	<option value="">------</option>
-                            	  	  	 	<option value="T">제목</option>
-                            	  	  	 	<option value="C">내용</option>
-                            	  	  	 	<option value="W">작성자</option>
-                            	  	  	 	<option value="TC">제목 or 내용</option>
-                            	  	  	 	<option value="TW">제목 or 작성자</option>
-                            	  	  	 	<option value="TCW">제목 or 내용 or 작성자</option>
+                            	  	  	 	<option value="" <c:out value="${empty cri.type?'selected':''}"/>>------</option>
+                            	  	  	 	<option value="T" <c:out value="${cri.type=='T'?'selected':''}"/>>제목</option>
+                            	  	  	 	<option value="C" <c:out value="${cri.type=='C'?'selected':''}"/>>내용</option>
+                            	  	  	 	<option value="W" <c:out value="${cri.type=='W'?'selected':''}"/>>작성자</option>
+                            	  	  	 	<option value="TC" <c:out value="${cri.type=='TC'?'selected':''}"/>>제목 or 내용</option>
+                            	  	  	 	<option value="TW" <c:out value="${cri.type=='TW'?'selected':''}"/>>제목 or 작성자</option>
+                            	  	  	 	<option value="TCW" <c:out value="${cri.type=='TCW'?'selected':''}"/>>제목 or 내용 or 작성자</option>
                             	  	  	 </select>
-                            	  	  	 <input type="text" name="keyword" />
-                            	  	  	 <button class="btn btn-default">검색</button>
+                            	  	  	 <input type="text" name="keyword" value="${cri.keyword}"/>
+                            	  	  	 <button class="btn btn-default" type='button'>검색</button>
                             	  	  </form>
                             	   </div>
                             	   <div class="col-md-2 col-md-offset-2">
@@ -94,6 +96,8 @@
 <form action="list" id="actionForm">
 	<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum}" />
 	<input type="hidden" name="amount" value="${pageVO.cri.amount}" />
+	<input type="hidden" name="type" value="${cri.type}" /> <!-- value="${pageVO.cri.type}" 도 가능 -->
+	<input type="hidden" name="keyword" value="${cri.keyword}" />
 </form>
 <!-- 모달 추가 -->
 <div class="modal" tabindex="-1" role="dialog" id="myModal">
@@ -158,6 +162,28 @@ $(function(){
 		actionForm.append("<input type='hidden' name='bno' value='"+$(this).attr("href")+"' />");
 		actionForm.attr('action','read');
 		actionForm.submit();
+	})
+	
+	// 검색 버튼 클릭 시 동작하는 스크립트
+	$(".btn-default").click(function(){
+		
+		let searchForm = $("#searchForm");
+
+		// type과 keyword가 비어있는지 확인하고
+		// 비어있으면 메세지 띄워준 후 return
+		let type = $("select[name='type']").val();
+		let keyword = $("input[name='keyword']").val();
+		
+		if(type===''){
+			alert("검색 기준을 입력해주세요");
+			return false;
+		}else if(keyword===''){
+			alert("검색어를 입력해주세요");
+			return false;
+		}
+		// 모두 입력이 된 경우 폼 전송
+		searchForm.find("input[name='pageNum']").val("1");
+		searchForm.submit();
 	})
 })
 </script>

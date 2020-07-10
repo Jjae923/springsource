@@ -7,7 +7,7 @@ import com.spring.domain.Criteria;
 
 public interface BoardMapper {
 	public List<BoardVO> list(Criteria cri);
-	public int total();
+	public int total(Criteria cri);
 	public int insert(BoardVO vo);
 	public BoardVO read(int bno);
 	public int modify(BoardVO vo);
