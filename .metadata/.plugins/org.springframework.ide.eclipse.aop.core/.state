@@ -32,6 +32,8 @@
 </aspect-definition>
 </aop-project>
 <aop-project name="simpleMember_cp"/>
+<aop-project name="register_rest"/>
+<aop-project name="bookmvc_rest"/>
 <aop-project name="simpleBook"/>
 <aop-project name="simpleboard_cp"/>
 <aop-project name="transaction">

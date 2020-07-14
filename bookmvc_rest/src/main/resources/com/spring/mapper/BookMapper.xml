@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.mapper.BookMapper">
+
+	<!-- 코드 번호에 해당하는 도서 정보 가져오기 -->
+	<select id="get" resultType="com.spring.domain.BookVO">
+		select * from bookTBL where code=#{code}
+	</select>
+
+	<!-- 전체 도서 목록 가져오기 -->
+	<select id="select" resultType="com.spring.domain.BookVO">
+		select * from bookTBL
+	</select>
+	
+	<!-- 도서 목록 입력 -->
+	<insert id="insert">
+		insert into bookTBL(code, title, writer, price) values(#{code}, #{title}, #{writer}, #{price})
+	</insert>
+	
+	<!-- 도서 목록 삭제 -->
+	<delete id="delete">
+		delete from bookTBL where code=#{code}
+	</delete>
+	
+	<!-- 도서 목록 수정 -->
+	<update id="modify">
+		update bookTBL set price=#{price} where code=#{code} 
+	</update>
+	
+	<!-- 도서 목록 검색 -->
+	<select id="search" resultType="com.spring.domain.BookVO">
+		select * from bookTBL where
+		<if test="criteria=='code'.toString()">
+			code=#{keyword}
+		</if>
+		<if test="criteria=='writer'.toString()">
+			writer like '%' || #{keyword} || '%'
+		</if>
+	</select>
+</mapper>

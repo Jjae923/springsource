@@ -66,4 +66,11 @@ $(function(){
 	})
 })
 </script>
+<script src="/resources/js/reply.js"></script>
+<script>
+$(function(){
+	// 댓글 작업 호출
+	replyService.add();
+})
+</script>
 <%@include file="../includes/footer.jsp" %>       
