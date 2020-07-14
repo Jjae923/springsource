@@ -3,6 +3,7 @@
 <aop-project name="register"/>
 <aop-project name="rest"/>
 <aop-project name="mybatis"/>
+<aop-project name="sample"/>
 <aop-project name="log"/>
 <aop-project name="simpleboard"/>
 <aop-project name="simpleMember"/>
