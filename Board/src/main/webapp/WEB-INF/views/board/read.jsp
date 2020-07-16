@@ -67,6 +67,9 @@
 					</li>
 				</ul>
 			</div>
+			<div class="panel-footer"><!-- 댓글 페이지 영역 -->
+				
+			</div>
 		</div>
 	</div>
 </div>
@@ -147,7 +150,7 @@ $(function(){
 	let modalInputReplyer = modal.find("input[name='replyer']");
 	let modalInputReplyDate = modal.find("input[name='replydate']");
 	// 모달 영역이 가지고 있는 버튼 찾기
-	let modalModBtn = $("#modalModBtn");
+	let modalModifyBtn = $("#modalModifyBtn");
 	let modalRemoveBtn = $("#modalRemoveBtn");
 	let modalRegisterBtn = $("#modalRegisterBtn");
 	
@@ -167,7 +170,13 @@ $(function(){
 	
 	// 댓글 작업 호출
 	// 댓글 등록하기
-	modalRegisterBtn.on("click",function(){
+	// on("click", ~~~) : click과 같은 역할인데, 동적바인딩 기능이 추가됨
+	//					  여러 이벤트를 동시에 추가할 수 있음
+	
+	// 댓글 페이지 나누기로 추가
+	let pageNum = 1;		// let은 hoisting 불가능하므로 변수 사용을 위해 위로 올렸음
+	
+	modalRegisterBtn.on("click", function(){
 		
 		var reply = {
 				bno:bno,
@@ -183,15 +192,22 @@ $(function(){
 					// modal 창 종료
 					modal.modal("hide");
 					// 전체 댓글 리스트 보기
-					showList(1);
+					// -1 로 변경해서 맨 마지막 페이지를 보여주기
+					showList(-1);
 					
 		}); // add 종료
 	})
 	
 	// 댓글 리스트 요청하기
 	function showList(page){
-	 	replyService.getList({bno:bno,page:page}, function(list){
+	 	replyService.getList({bno:bno,page:page}, function(total, list){
 			console.log(list);
+			
+			if(page == -1){
+				pageNum = Math.ceil(total / 10.0);
+				showList(pageNum);
+				return;
+			}
 			
 			if(list === null || list.length === 0){
 				replyUl.html("");
@@ -207,27 +223,97 @@ $(function(){
 				str+="</small></div><p>"+list[i].reply+"</p></div></li>";
 			}
 			replyUl.html(str);
-			
+			showReplyPage(total);
 		}) // getList 종료
 	}
+	
+	// 페이지 나누기
+	let replyPageFooter = $(".panel-footer");
+	function showReplyPage(total){
+		// 댓글 페이지 영역 가져오기
+		
+		// 마지막 페이지 계산
+		let endPage = Math.ceil(pageNum/10.0)*10;
+		// 시작 페이지 계산
+		let startPage = endPage - 9;
+		// 이전 버튼
+		let prev = startPage != 1;
+		// 다음 버튼
+		let next = false;
+		
+		// 실제 마지막 페이지 계산
+		if(endPage * 10 >= total){
+			endPage = Math.ceil(total/10.0);
+		}
+		if(endPage * 10 < total){
+			next = true;
+		}
+		
+		// 디자인 작성 후 댓글 페이지 영역에 보여주기
+		let str = "<ul class='pagination pull-right'>";
+		if(prev){
+			str += "<li class='page-item'><a class='page-link'";
+			str += " href='"+(startPage - 1)+"'>Prev</a></li>";
+		}
+		for(var i = startPage; i<= endPage; i++){
+			let active = pageNum == i ? "active":"";
+			str += "<li class='page-item "+active+"'>";
+			str += "<a class='page-link' href='"+i+"'>"+i;
+			str += "</a></li>";
+		}
+		if(next){
+			str += "<li class='page-item'><a class='page-link'";
+			str += " href='"+(endPage + 1)+"'>Next</a></li>";
+		}
+		str += "</ul></div>";
+		replyPageFooter.html(str);
+	}
+
+	// 댓글 페이지 번호를 누르면 실행되는 스크립트
+	replyPageFooter.on("click","li a",function(e){
+		// href 때문에 움직이는 이벤트 제거
+		e.preventDefault();
+		
+		pageNum = $(this).attr("href");
+		showList(pageNum);
+	})
 
 	// 댓글 삭제
-/* 	replyService.remove(18,
-			function(result){ alert(result);},
-			function(msg){
-				alert(msg);
-	}) */ // remove 종료
+	// $("#modalRemoveBtn").click(function())도 가능
+	$("#modalRemoveBtn").on("click", function(){
+	 	replyService.remove(modal.data("rno"),
+				function(result){
+	 				alert(result);
+					// modal 창 종료
+					modal.modal("hide");
+					// 전체 댓글 리스트 보기
+					// showList(1); // 페이지 나누기 전			
+					showList(pageNum); // 페이지 나누기 후 : 현재 보던 페이지
+			 	},
+				function(msg){
+					alert("삭제 실패");
+		}) // remove 종료
+	})
 	
 	// 댓글 수정
-/* 	replyService.update({rno:17, reply:'댓글 내용 수정22'}, 
-			function(result){ alert(result); },
-			function(error){ alert("수정 실패"); 
-	}) */ // update 종료
+	$(modalModifyBtn).on("click",function(){
+		replyService.update({rno : modal.data("rno"), reply : modalInputReply.val()}, 
+				function(result){
+					alert(result);
+					// modal 창 종료
+					modal.modal("hide");
+					// 전체 댓글 리스트 보기
+					// showList(1); // 페이지 나누기 전			
+					showList(pageNum); // 페이지 나누기 후 : 현재 보던 페이지
+				},
+				function(error){ alert("수정 실패"); 
+		}) // update 종료
+	})
 	
 	// 댓글 하나 가져오기
 	// 실제로는 li에 이벤트를 걸어야 하지만 댓글이 나중에 생기는
 	// 부분이기 때문에 존재하는 영역에 댓글을 걸고 나중에 생기는
-	// li 태그에 위임하는 방식으로 작성
+	// li 태그에 위임하는 방식으로 작성 (동적바인딩 꼭 필요!!)
 	$(".chat").on("click","li",function(){
 		
 		// 현재 클릭된 댓글의 rno 가져오기
@@ -244,7 +330,12 @@ $(function(){
 				// 현재 읽어온 rno 담아주기 // PK라서 반드시 있어야함!
 				modal.data("rno", result.rno);
 				
+				// 작성일 및 버튼 보여주기
+				modalInputReplyDate.closest("div").show();
+				modal.find("button").show();
+				
 				modal.find("button[id='modalRegisterBtn']").hide();
+				
 				modal.modal("show");
 			},
 			function(error){ alert("데이터 없음");
