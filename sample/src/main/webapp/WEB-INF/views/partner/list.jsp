@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%> <%@include file="../includes/header.jsp" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
@@ -34,14 +35,16 @@ pageEncoding="UTF-8"%> <%@include file="../includes/header.jsp" %>
             </thead>
             <tbody>
               <!-- 파트너 리스트 반복문 -->
-              <tr class="text-center">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
+              <c:forEach var="vo" items="${list}">
+	              <tr class="text-center">
+	                <td>${vo.id}</td>
+	                <td>${vo.name}</td>
+	                <td>${vo.ceo}</td>
+	                <td>${vo.contact}</td>
+	                <td>${vo.address}</td>
+	                <td>${vo.registered}</td>
+	              </tr>
+              </c:forEach>
             </tbody>
           </table>
         </div>

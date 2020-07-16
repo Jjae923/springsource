@@ -1,5 +1,7 @@
 package com.spring.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,5 +17,10 @@ public class PartnerServiceImpl implements PartnerService {
 	@Override
 	public boolean insert(PartnerVO vo) {
 		return mapper.create(vo)==1? true:false;
+	}
+
+	@Override
+	public List<PartnerVO> list() {
+		return mapper.read();
 	}
 }

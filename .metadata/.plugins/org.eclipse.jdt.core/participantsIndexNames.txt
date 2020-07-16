@@ -43,6 +43,8 @@ D:\Source\eclipse\springsource\.metadata\.plugins\org.eclipse.jst.jsp.core\jspse
 \test2\src\main\java
 D:\Source\eclipse\springsource\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\188062851.index
 \simpleBook_mybatis\src\main\java
+D:\Source\eclipse\springsource\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\859611353.index
+\sample\src\main\java
 D:\Source\eclipse\springsource\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\296759092.index
 \test2\src\main\java
 D:\Source\eclipse\springsource\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3476146105.index

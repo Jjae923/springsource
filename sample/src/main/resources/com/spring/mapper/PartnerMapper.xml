@@ -7,7 +7,7 @@
 	</insert>
 	
 	<select id="read" resultType="com.spring.domain.PartnerVO">
-		select * from partner where
+		select * from partner
 	</select>
 
 	<update id="update">
