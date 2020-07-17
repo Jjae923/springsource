@@ -37,9 +37,9 @@ public class UploadController {
 			log.info("upload File Name : "+f.getOriginalFilename());
 			log.info("upload File Size : "+f.getSize());
 			
-			// 서버 폴더에 파일 저장(File, Path 객체로 저장)
 			File saveFile = new File(uploadPath, f.getOriginalFilename());
 			try {
+				// 서버 폴더에 파일 저장(File, Path 객체로 저장)
 				f.transferTo(saveFile);
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
@@ -50,6 +50,7 @@ public class UploadController {
 	}
 
 	// download 컨트롤러
+	// produces = MediaType.APPLICATION_OCTET_STREAM_VALUE → 여러가지 파일 타입을 받을 수 있음	
 	@GetMapping(value="/download", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
 	@ResponseBody
 	public ResponseEntity<Resource> downloadFile(String fileName) {
@@ -70,8 +71,6 @@ public class UploadController {
 	}
 	
 }
-
-
 
 
 
