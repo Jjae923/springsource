@@ -55,6 +55,25 @@
 </div>
 <script>
 $(function(){
+	$("button[type='submit']").click(function(e){
+		// submit 버튼 기능 막기 (다른 기능도 막을 수 있음)
+		e.preventDefault();
+		// 게시글 등록 + 파일 첨부 한꺼번에 처리
+		// 첨부 파일 내용 수집
+		let str = "";
+		$(".uploadResult ul li").each(function(i, ele) {
+			let job = $(ele);
+			
+			str += "<input type='hidden' name='attachList["+i+"].uuid' value='"+job.data("uuid")+"'>";
+			str += "<input type='hidden' name='attachList["+i+"].uploadPath' value='"+job.data("path")+"'>";
+			str += "<input type='hidden' name='attachList["+i+"].fileName' value='"+job.data("filename")+"'>";
+			str += "<input type='hidden' name='attachList["+i+"].fileType' value='"+job.data("type")+"'>";
+		})
+		console.log(str);
+		// 해당 폼 전송 (체인 형태로 함수 호출 가능)
+		$("form[role='form']").append(str).submit();
+	})
+	
 	$("input[type='file']").change(function(){
 		// form의 형태로 데이터를 구성할 수 있음
 		// input타입은 key, value 형태로 찾아오기 때문에 필수 구성요소! 

@@ -1,6 +1,7 @@
 package com.spring.domain;
 
 import java.util.Date;
+import java.util.List;
 
 import lombok.Data;
 
@@ -13,4 +14,7 @@ public class BoardVO {
 	private Date regdate;
 	private Date updatedate;
 	private int replycnt;
+	
+	// 게시글 등록 시 첨부 파일 목록
+	private List<AttachFileVO> attachList;
 }

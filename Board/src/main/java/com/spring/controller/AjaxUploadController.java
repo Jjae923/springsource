@@ -72,7 +72,6 @@ public class AjaxUploadController {
 			
 			try {
 				Path saveFile = Paths.get(uploadPath.getPath(), uploadFileName);
-				f.transferTo(saveFile);
 				
 				// 이미지 파일 여부 확인
 				if(checkImageType(saveFile.toFile())) {
@@ -83,7 +82,8 @@ public class AjaxUploadController {
 					Thumbnailator.createThumbnail(f.getInputStream(), thumbnail, 100, 100);
 					thumbnail.close();
 				}
-				attachList.add(attach);
+				f.transferTo(saveFile); // 서버 폴더에 파일이 저장되는 부분
+				attachList.add(attach); // list
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
 			} catch (IOException e) {

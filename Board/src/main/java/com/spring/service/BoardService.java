@@ -2,6 +2,7 @@ package com.spring.service;
 
 import java.util.List;
 
+import com.spring.domain.AttachFileVO;
 import com.spring.domain.BoardVO;
 import com.spring.domain.Criteria;
 
@@ -13,4 +14,7 @@ public interface BoardService {
 	public BoardVO readBoard(int bno);
 	public boolean modifyBoard(BoardVO vo);
 	public boolean deleteBoard(int bno);
+	
+	// 첨부물 기능
+	List<AttachFileVO> attachList(int bno);
 }

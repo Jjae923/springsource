@@ -1,8 +1,14 @@
 package com.spring.controller;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.spring.domain.AttachFileVO;
 import com.spring.domain.BoardVO;
 import com.spring.domain.Criteria;
 import com.spring.domain.PageVO;
@@ -35,6 +42,10 @@ public class BoardController {
 	@PostMapping("/register")
 	public String registerPost(BoardVO vo, RedirectAttributes rttr) {
 		log.info("글 작성 요청"+vo);
+		
+		if(vo.getAttachList()!=null) {
+			vo.getAttachList().forEach(attach -> log.info(attach+""));
+		}
 		
 		if(service.insertBoard(vo)) {
 			rttr.addFlashAttribute("result", vo.getBno());
@@ -88,6 +99,10 @@ public class BoardController {
 	public String delete(int bno, Criteria cri, RedirectAttributes rttr) {
 		log.info("삭제 요청"+bno);
 		
+		// 현재 글번호에 해당한는 첨부파일 목록을 서버에서 삭제하기 위해서
+		// bno에 해당하는 첨부파일 리스트 가져오기
+		List<AttachFileVO> attachList=service.attachList(bno);
+		
 		if(service.deleteBoard(bno)) {
 			rttr.addAttribute("pageNum", cri.getPageNum());
 			rttr.addAttribute("amount", cri.getAmount());
@@ -101,7 +116,35 @@ public class BoardController {
 		}
 	}
 	
+	// 첨부물 가져오기 컨트롤러 작성
+	@GetMapping("/getAttachList")
+	public ResponseEntity<List<AttachFileVO>> getAttachList(int bno){
+		log.info("첨부물 가져오기 "+bno);
+		return new ResponseEntity<List<AttachFileVO>>(service.attachList(bno),HttpStatus.OK);
+	}
 	
-	
+	// 게시글 삭제 시 서버 폴더에 첨부물 삭제
+	public void deleteFiles(List<AttachFileVO> attachList) {
+		if(attachList == null || attachList.size() == 0) {
+			return;
+		}
+		
+		for(AttachFileVO vo : attachList) {
+			Path file = Paths.get("d:\\upload\\",vo.getUploadPath()+"\\"+vo.getUuid()+"_"+vo.getFileName());
+			
+			try {
+				//일반파일, 이미지 원본 파일 삭제				
+				Files.deleteIfExists(file);
+				
+				//썸네일 삭제
+				if(Files.probeContentType(file).startsWith("image")) {
+					Path thumb = Paths.get("d:\\upload\\",vo.getUploadPath()+"\\s_"+vo.getUuid()+"_"+vo.getFileName());
+					Files.delete(thumb);
+				}
+			} catch (IOException e) {				
+				e.printStackTrace();
+			}
+		}
+	}
 	
 }

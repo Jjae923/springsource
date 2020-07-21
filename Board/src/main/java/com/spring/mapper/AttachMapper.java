@@ -6,6 +6,6 @@ import com.spring.domain.AttachFileVO;
 
 public interface AttachMapper {
 	public int insert(AttachFileVO vo);
-	public int delete(String uuid);
+	public int delete(int bno);
 	public List<AttachFileVO> select(int bno);
 }
