@@ -10,3 +10,7 @@ create table spring_attach(
 alter table spring_attach add constraint pk_attach primary key(uuid);
 alter table spring_attach add constraint fk_board_attach primary key(bno)
 references spring_board(bno);
+
+select * from SPRING_ATTACH;
+
+select * from SPRING_ATTACH where uploadpath = to_char(sysdate-1,'yyyy\mm\dd');

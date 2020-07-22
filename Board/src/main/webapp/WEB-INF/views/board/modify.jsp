@@ -230,29 +230,14 @@ $(function(){
 		}, 1000);
 	})	
 	
-	// X를 누르면 서버 폴더에서 삭제하고 목록에서 삭제하기
-	$(".uploadResult").on("click","button",function(){
-		// 삭제해야할 파일 경로
-		let targetFile = $(this).data("file");
-		// 삭제해야할 파일 타입
-		let type = $(this).data("type");
-
-		console.log("targetFile "+targetFile);
-		console.log("type"+type);
+	// X를 누르면 목록에서 삭제하기
+	$(".uploadResult").on("click","button",function(e){			
 		
- 		let targetLi = $(this).closest("li"); /* closest : 가장 가까운 부모 영역 가져오기 */
-		$.ajax({
-			url : '/deleteFile',
-			data : {
-				fileName : targetFile,
-				type : type
-			},
-			type : 'post',
-			success:function(result){
-				console.log(result);
-				targetLi.remove();
-			}
-		}) 
+		if(confirm("파일을 삭제하시겠습니까?")){
+			
+			let targetLi = $(this).closest("li");
+			targetLi.remove();
+		}
 		// 다음 이벤트 발생 막기
 		e.stopPropagation();
 	}) // 첨부 파일 삭제 종료
