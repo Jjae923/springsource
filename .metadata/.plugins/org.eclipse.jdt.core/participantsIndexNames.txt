@@ -67,6 +67,8 @@ D:\Source\eclipse\springsource\.metadata\.plugins\org.eclipse.jst.jsp.core\jspse
 \magpartner\src\main\java
 D:\Source\eclipse\springsource\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\370721026.index
 \aop\src\main\java
+D:\Source\eclipse\springsource\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\606342943.index
+\security\src\main\java
 D:\Source\eclipse\springsource\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2248171908.index
 \simpleboard_cp_jdbcDao\src\main\java
 D:\Source\eclipse\springsource\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1070346842.index

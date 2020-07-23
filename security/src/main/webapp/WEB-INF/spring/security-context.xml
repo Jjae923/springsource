@@ -5,10 +5,57 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-5.3.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
 
+	<!-- <security:form-login/> : UsernamePasswordAutenticationFilter(@Post)         // Spring Security 내에서 username = ID
+								  / DefaultLoginPageGeneratingFilter(@Get)
+								  → 만들어진 로그인 폼 페이지가 없는 경우 동작 -->
+
+	<bean id="customHandler" class="com.spring.handler.CustomAccessDeniedHandler"/>
+	<bean id="loginSuccessHandler" class="com.spring.handler.CustomLoginSuccessHandler"/>
+	<!-- 패스워드인코더 -->
+	<bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+
 	<security:http>
-		<security:form-login/>
+		<!-- 특정한 URI에 접근할 때 인터셉터 동작시키기 : FilterSecurityInterceptor 가 수행 -->
+		<security:intercept-url pattern="/security/all" access="permitAll"/>
+		<security:intercept-url pattern="/security/member" access="hasRole('ROLE_MEMBER')"/>
+		<security:intercept-url pattern="/security/admin" access="hasRole('ROLE_ADMIN')"/>
+		<!-- 권한이 없는 URI에 접근하는 경우 동작하는 컨트롤러 작성 -->
+		<!-- <security:access-denied-handler error-page="/accessError"/> -->
+		<!-- 권한이 없는 URI에 접근하는 경우 동작하는 컨트롤러 작성 -->
+		<security:access-denied-handler ref="customHandler"/> <!-- ref : 객체 생성 -->
+		<security:form-login login-page="/security/login" authentication-success-handler-ref="loginSuccessHandler"/>
+		<security:logout invalidate-session="true" logout-success-url="/"/> <!-- invalidate-session : 세션 날리기 -->
 	</security:http>
+	<!-- 사용자 인증을 DB를 이용할 때 -->
 	<security:authentication-manager>
-		
+		<security:authentication-provider>
+			<security:password-encoder ref="bcryptPasswordEncoder"/>
+			<security:jdbc-user-service data-source-ref="ds"/>
+		</security:authentication-provider>
 	</security:authentication-manager>
+	
+	<!-- 사용자 인증을 in-memory 방식으로 할 때 	
+
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:user-service>비밀번호는 무조건 암호화가 필요 / user-service : 인 메모리 인증 / {noop} : 암호화 X / authorities : 권한부여
+				<security:user name="user1" password="{noop}user1" authorities="permitAll"/>
+				<security:user name="member" password="{noop}member" authorities="ROLE_MEMBER"/>
+				<security:user name="admin" password="{noop}admin" authorities="ROLE_MEMBER,ROLE_ADMIN"/>
+			</security:user-service>
+		</security:authentication-provider>
+	</security:authentication-manager> -->
 </beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
