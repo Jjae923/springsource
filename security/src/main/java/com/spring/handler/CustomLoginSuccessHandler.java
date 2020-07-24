@@ -25,6 +25,7 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler {
 		List<String> roleNames = new ArrayList<String>();
 		authentication.getAuthorities().forEach(authority -> roleNames.add(authority.getAuthority()));
 		
+		log.info("roleNames "+roleNames);
 		
 		// 부여된 권한에 따라서 페이지 이동시키기
 		if(roleNames.contains("ROLE_ADMIN")) {

@@ -11,10 +11,15 @@
 
 	<bean id="customHandler" class="com.spring.handler.CustomAccessDeniedHandler"/>
 	<bean id="loginSuccessHandler" class="com.spring.handler.CustomLoginSuccessHandler"/>
+	
 	<!-- 패스워드인코더 -->
 	<bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+	<!-- 인증정보 제공자 -->
+	<bean id="userDetail" class="com.spring.service.CustomUserDetailService"></bean>
 
 	<security:http>
+		<!-- Remember-me -->
+		<security:remember-me data-source-ref="ds" token-validity-seconds="604800"/>
 		<!-- 특정한 URI에 접근할 때 인터셉터 동작시키기 : FilterSecurityInterceptor 가 수행 -->
 		<security:intercept-url pattern="/security/all" access="permitAll"/>
 		<security:intercept-url pattern="/security/member" access="hasRole('ROLE_MEMBER')"/>
@@ -26,13 +31,23 @@
 		<security:form-login login-page="/security/login" authentication-success-handler-ref="loginSuccessHandler"/>
 		<security:logout invalidate-session="true" logout-success-url="/"/> <!-- invalidate-session : 세션 날리기 -->
 	</security:http>
-	<!-- 사용자 인증을 DB를 이용할 때 -->
+
+	<!-- 사용자 인증 : DB(mybatis) -->
 	<security:authentication-manager>
-		<security:authentication-provider>
+		<security:authentication-provider user-service-ref="userDetail">
 			<security:password-encoder ref="bcryptPasswordEncoder"/>
-			<security:jdbc-user-service data-source-ref="ds"/>
 		</security:authentication-provider>
 	</security:authentication-manager>
+
+	<!-- 사용자 인증을 DB를 이용할 때
+	 	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:password-encoder ref="bcryptPasswordEncoder"/>
+			users-by-username-quer : user와 관련된 query / authorities-by-username-query : 권한과 관련된 query
+			<security:jdbc-user-service data-source-ref="ds" users-by-username-query="select userid, userpw, enabled from spring_member where userid=?" 
+			authorities-by-username-query="select userid, auth from spring_member_auth where userid=?"/>
+		</security:authentication-provider>
+	</security:authentication-manager> -->
 	
 	<!-- 사용자 인증을 in-memory 방식으로 할 때 	
 
