@@ -43,11 +43,15 @@ let replyService=(function(){
 		
 	} // getList 종료
 	
-	function remove(rno, callback, error){
+	function remove(rno, replyer, callback, error){
 		console.log("rno : "+rno);
 		$.ajax({
 			url : '/replies/'+rno,
 			type : 'delete',
+			contentType : "application/json",
+			data : JSON.stringify({
+				replyer : replyer
+			}),
 			success : function(result){
 				if(callback){
 					callback(result);

@@ -79,6 +79,7 @@ public class BoardController {
 	}
 	
 	// 게시글 수정하기
+	@PreAuthorize("principal.username == #vo.writer")
 	@PostMapping("/modify")
 	public String modifyPost(BoardVO vo, Criteria cri, RedirectAttributes rttr) {
 		log.info("수정 요청" + cri);
@@ -98,8 +99,9 @@ public class BoardController {
 	}
 	
 	// 게시글 삭제하기
+	@PreAuthorize("principal.username == #writer")
 	@PostMapping("/remove")
-	public String delete(int bno, Criteria cri, RedirectAttributes rttr) {
+	public String delete(int bno, String writer, Criteria cri, RedirectAttributes rttr) {
 		log.info("삭제 요청"+bno);
 		
 		// 현재 글번호에 해당한는 첨부파일 목록을 서버에서 삭제하기 위해서

@@ -14,7 +14,7 @@
 		<a href="/member/login">로그인</a>
 	</sec:authorize>
 	<sec:authorize access="isAuthenticated()">
-		<form action="/logout" method="post">
+		<form action="/member/logout" method="post">
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 			<button>로그아웃</button>
 		</form>

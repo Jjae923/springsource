@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://www.springframework.org/security/tags"  prefix="sec"%>
 <link rel="stylesheet" href="/resources/css/mycss.css" />
 <%@include file="../includes/header.jsp" %>
             <div class="row">
@@ -28,10 +29,11 @@
                 				</div> 
                 				<div class="form-group">
                 					<label>Writer</label>
-                					<input class="form-control" name="writer">                				
+                					<input class="form-control" name="writer" value='<sec:authentication property="principal.username"/>' readonly>                				
                 				</div>  
                 				<button type="submit" class="btn btn-default">Submit</button>              			
-                				<button type="reset" class="btn btn-default">reset</button>              			
+                				<button type="reset" class="btn btn-default">reset</button>          
+            					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>    			
                 			</form>
                 		</div>
                 	</div>
@@ -74,6 +76,10 @@ $(function(){
 		$("form[role='form']").append(str).submit();
 	})
 	
+	// csrf 토큰 값 생성
+	let csrfHeaderName = "${_csrf.headerName}"; 
+	let csrfTokenValue = "${_csrf.token}"; 
+	
 	$("input[type='file']").change(function(){
 		// form의 형태로 데이터를 구성할 수 있음
 		// input타입은 key, value 형태로 찾아오기 때문에 필수 구성요소! 
@@ -100,12 +106,16 @@ $(function(){
 		$.ajax({
 			url : '/uploadAjax',
 			type : 'post',
+			beforeSend : function(xhr){
+				xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+			},
 			processData : false,
 			contentType : false,
 			data : formData,
 			success : function(result){
 				console.log(result);
 				showUploadFile(result);
+				$("input[name='uploadFile']").val("");
 			},
 			error : function(xhr, status, error){
 				alert(xhr.responseText);
@@ -147,7 +157,7 @@ $(function(){
 				str += " data-filename='"+element.fileName+"' data-type='"+element.fileType+"'>";
 				str += "<a href=\"javascript:showImage(\'"+oriPath+"\')\">";
 				str += "<img src='/display?fileName="+ fileCallPath +"'><div>"+element.fileName+"</a>";
-				str += " <button type='button' class='btn btn-success btn-circle btn-sm'>";
+				str += " <button type='button' class='btn btn-success btn-circle btn-sm' data-file='"+fileCallPath+"' data-type='image'>";
 				str += "<i class='fa fa-times'></i></button>";
 				str += "</div></li>";
 			}else{ // 일반파일
@@ -156,13 +166,38 @@ $(function(){
 				str += " data-filename='"+element.fileName+"' data-type='"+element.fileType+"'>";
 				str += "<a href='/download?fileName="+ fileCallPath +"'>";
 				str += "<img src='/resources/img/attach.png'><div>"+element.fileName+"</a>";
-				str += " <button type='button' class='btn btn-success btn-circle btn-sm'>";
+				str += " <button type='button' class='btn btn-success btn-circle btn-sm' data-file='"+fileCallPath+"' data-type='file'>";
 				str += "<i class='fa fa-times'></i></button>";	
 				str += "</div></li>";		
 			}
 		})
 		uploadResult.append(str);
 	}
+	
+	// X를 누르면 목록에서 삭제하기
+	$(".uploadResult").on("click","button",function(e){			
+		
+		let targetFile = $(this).data("file");
+		let type = $(this).data("type");
+		let targetLi = $(this).closest("li");
+		
+		$.ajax({
+			url : '/deleteFile',
+			type : 'post',
+			beforeSend : function(xhr){
+				xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+			},
+			data : {
+				fileName : targetFile,
+				type : type
+			},
+			success:function(result){
+				targetLi.remove();
+			}
+		})
+		// 다음 이벤트 발생 막기
+		e.stopPropagation();
+	})  // 첨부 파일 삭제 종료
 })
 </script>
 <%@include file="../includes/footer.jsp" %>

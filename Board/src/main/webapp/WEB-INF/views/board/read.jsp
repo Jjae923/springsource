@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://www.springframework.org/security/tags"  prefix="sec"%>
 <link rel="stylesheet" href="/resources/css/mycss.css" />
 <%@include file="../includes/header.jsp" %>
             <div class="row">
@@ -34,7 +35,12 @@
                 					<label>Writer</label>
                 					<input class="form-control" name="writer" readonly="readonly" value="${vo.writer}">
                 				</div>  
-                				<button type="button" class="btn btn-default">Modify</button>     			
+                				<sec:authentication property="principal" var="info"/>
+                				<sec:authorize access="isAuthenticated()">
+                					<c:if test="${info.username == vo.writer}">
+		                				<button type="button" class="btn btn-default">Modify</button>     			
+                					</c:if>
+                				</sec:authorize>
                 				<button type="reset" class="btn btn-info" >List</button>          			
                 			</form>
                 		</div>
@@ -64,9 +70,11 @@
 			<div class="panel-heading">
 				<i class="fa fa-comments fa-fw"></i>
 				Reply
-				<button id="addReplyBtn" class="btn btn-primary btn-xs pull-right">
-					New Reply
-				</button>
+				<sec:authorize access="isAuthenticated()">
+					<button id="addReplyBtn" class="btn btn-primary btn-xs pull-right">
+						New Reply
+					</button>
+				</sec:authorize>
 			</div>
 			<div class="panel-body">
 				<ul class="chat">
@@ -231,9 +239,27 @@ $(function(){
 	let modalRemoveBtn = $("#modalRemoveBtn");
 	let modalRegisterBtn = $("#modalRegisterBtn");
 	
+	// csrf 토큰 값 생성
+	let csrfHeaderName = "${_csrf.headerName}"; 
+	let csrfTokenValue = "${_csrf.token}"; 
+	
+	// ajax가 호출될 때는 무조건 이 부분이 따라가도록 설정
+	$(document).ajaxSend(function(e,xhr,options){
+		xhr.setRequestHeader(csrfHeaderName,csrfTokenValue);
+	})
+	
+	// 현재 로그인 사용자 값 가져오기
+	let replyer = null;
+	<sec:authorize access = "isAuthenticated()">
+	replyer = '<sec:authentication property="principal.username"/>';
+	</sec:authorize>
+	
 	$("#addReplyBtn").click(function(){
 		// input 안에 들어있는 내용 없애주기
 		modal.find("input").val("");
+		
+		// 현재 로그인한 사용자 replyer에 보여주기
+		modalInputReplyer.val(replyer).attr("readonly","readonly");
 		
 		// 작성 날짜 영역 없애기
 		modalInputReplyDate.closest("div").hide(); // replydate를 감싸고 있는 가장 가까운 div를 숨기기
@@ -358,7 +384,21 @@ $(function(){
 	// 댓글 삭제
 	// $("#modalRemoveBtn").click(function())도 가능
 	$("#modalRemoveBtn").on("click", function(){
-	 	replyService.remove(modal.data("rno"),
+		// 댓글 삭제 버튼이 눌러지면 로그인 여부 확인하기
+		if(!replyer){
+			alert('로그인 후 삭제가 가능합니다.');
+			modal.modal("hide");
+			return;
+		}
+		// 현재 모달창에 보이는 사용자와 로그인 사용자가 같은지 확인하기
+		let originReplyer = modalInputReplyer.val();
+		if(originReplyer != replyer){
+			alert("자신의 댓글만 삭제가 가능합니다.");
+			modal.modal("hide");
+			return;
+		}
+		// 댓글 삭제
+	 	replyService.remove(modal.data("rno"), replyer,
 				function(result){
 	 				alert(result);
 					// modal 창 종료
@@ -374,17 +414,36 @@ $(function(){
 	
 	// 댓글 수정
 	$(modalModifyBtn).on("click",function(){
-		replyService.update({rno : modal.data("rno"), reply : modalInputReply.val()}, 
-				function(result){
-					alert(result);
-					// modal 창 종료
-					modal.modal("hide");
-					// 전체 댓글 리스트 보기
-					// showList(1); // 페이지 나누기 전			
-					showList(pageNum); // 페이지 나누기 후 : 현재 보던 페이지
-				},
-				function(error){ alert("수정 실패"); 
-		}) // update 종료
+		// 댓글 수정 버튼이 눌러지면 로그인 여부 확인하기
+		if(!replyer){
+			alert('로그인 후 수정이 가능합니다.');
+			modal.modal("hide");
+			return;
+		}
+		// 현재 모달창에 보이는 사용자와 로그인 사용자가 같은지 확인하기
+		let originReplyer = modalInputReplyer.val();
+		if(originReplyer != replyer){
+			alert("자신의 댓글만 수정이 가능합니다.");
+			modal.modal("hide");
+			return;
+		}
+		
+		let reply = {
+				rno:modal.data("rno"),
+				reply:modalInputReply.val(),
+				replyer : modalInputReplyer.val()
+		}
+		replyService.update(reply,function(result){
+			alert(result);
+			//모달 창 종료
+			modal.modal("hide");
+			//전체 댓글 리스트 보기
+			// showList(1);  페이지 나누기 전
+			showList(pageNum); //페이지 나누기 후 : 현재 보던 페이지
+		},function(error){
+			alert("수정 실패");
+
+		}) //update 종료
 	})
 	
 	// 댓글 하나 가져오기
